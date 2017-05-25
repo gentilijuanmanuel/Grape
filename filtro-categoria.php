@@ -30,6 +30,16 @@
 
 <body>
 
+    <?php
+    include("conexion.inc");
+    $vNomCategoria = $_POST['categoria'];
+    $vQuery = "select * from bebidas where id_tipo_bebida = (select id_tipo_bebida from tipos_bebidas where nombre =".$vNomCategoria");"
+
+    $vResult = mysqli_query($link, $vQuery);
+
+    $vArray = mysqli_fetch_assoc($vResult);
+
+    ?>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container-fluid">
@@ -50,12 +60,13 @@
             <li class="active"><a href="#">Sobre nosotros <span class="sr-only">(current)</span></a></li>
 
           </ul>
-          <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
+          <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
+              <input type="text" class="form-control" placeholder="Buscar whiskies, vinos...">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -68,50 +79,56 @@
             <div class="col-md-3">
                 <p class="lead">Grape</p>
                 <div class="list-group">
-                  <form action="filtro-categoria.php" method="post">
-                    <a href="categorias-whisky.php" class="list-group-item">Whiskies</a>
-                    <a href="categorias-champagne.php" class="list-group-item">Shampagnes</a>
-                    <a href="categorias-vinos.php" class="list-group-item">Vinos</a>
-                    <a href="categorias-vodkas.php" class="list-group-item">Vodkas</a>
-                    <a href="categorias-licores.php" class="list-group-item">Licores</a>
-                  </form>
+                    <a href="#" class="list-group-item">Whiskies</a>
+                    <a href="#" class="list-group-item">Shampagnes</a>
+                    <a href="#" class="list-group-item">Vinos</a>
+                    <a href="#" class="list-group-item">Vodkas</a>
+                    <a href="#" class="list-group-item">Licores</a>
                 </div>
             </div>
 
             <div class="col-md-9">
+                <div class="row">
 
-                <div class="row carousel-holder">
+                <?php
+                if(mysql_num_rows($vResult) == "0")
+                {
+                  echo "No hay resultados";
+                }
+                else {
+                  while($vReg = mysqli_fetch_array($vResult))
+                  { ?>
 
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="images/dom-perignon.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="images/wine.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="images/trago.jpg" alt="">
-                                </div>
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="'<?php echo $vReg['url_imagen'] ?>'" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right"><?php $vReg['precio'] ?></h4>
+                                <h4><?php $vReg['nombre'] ?>
+                                </h4>
+                                <p><?php $vReg['descripcion'] ?></p>
                             </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
+                  }
+                }
+                ?>
 
-                </div>
 
-                <div class="row">
+
+
+
+
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
