@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,8 +13,12 @@
       $descripcion = $_POST['descripcion'];
       $marca = $_POST['marca'];
       $tipo_bebida = $_POST['tipo_bebida'];
+/////////////////////////
 
-      $vAlta = "insert into bebidas(nombre, precio, descripcion, id_tipo_bebida, marca) values ('$nombre', '$precio','$descripcion','$tipo_bebida','$marca')";
+
+/////////////////////////
+      $ubicacion_imagen=$_SESSION['ubicacion-imagen'];
+      $vAlta = "insert into bebidas(nombre, precio, descripcion, id_tipo_bebida, marca, url_imagen) values ('$nombre', '$precio','$descripcion','$tipo_bebida','$marca', '$ubicacion_imagen')";
       $resultado = mysqli_query($link, $vAlta) or die (mysqli_error($link));
       if($resultado) {
         echo "<p>La ciudad ha sido agregada correctamente.</p>";

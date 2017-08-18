@@ -51,6 +51,24 @@ insert into pedidos values(3, 4, 2, current_date());
 
 commit;
 
+#Actualización de datos en tabla bebidas
+
+start transaction;
+
+update bebidas set url_imagen = "images/blue-label.jpg" where id_bebida = 1;
+update bebidas set url_imagen = "images/gold-label.jpg" where id_bebida = 2;
+update bebidas set url_imagen = "images/ruttini.jpg" where id_bebida = 3;
+update bebidas set url_imagen = "images/dom-perignon-rose.jpg" where id_bebida = 4;
+update bebidas set url_imagen = "images/baron-b.jpg" where id_bebida = 5;
+update bebidas set url_imagen = "images/absolut-pear.jpg" where id_bebida = 6;
+
+commit;
+
+select * from bebidas;
+
+
+
+
 
 
 

@@ -58,7 +58,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
-          <form class="" action="alta-producto.php" method="post">
+          <form class="" action="alta-producto.php" method="post" name="submit" >
             <div class="form-group">
               <label>Nombre bebida</label>
               <input type="text" name="nombre" class="form-control">
@@ -88,6 +88,8 @@
               <label>Marca</label>
               <input type="text" name="marca" class="form-control">
             </div>
+            <a href="#" onClick="window.open('Cargar-imagen.html', 'ImaGen', 'resizable, height=300, width=500'); return false;">Cargar Imagen</a>
+            <br><br>
             <button type="submit" class="btn btn-primary">Crear</button>
           </form>
         </div>
@@ -96,4 +98,5 @@
 
 
   </body>
+
 </html>
