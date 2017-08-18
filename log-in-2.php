@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Registrarse - Grape</title>
+        <title>Ingresar - Grape</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,58 +61,47 @@
         </div><!-- /.container-fluid -->
         </nav>
 
-        <!-- Page Content -->
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                        <form action="alta-usuario.php" method="post">
-                            <h1>Ingrese sus datos</h1>
-                            <br>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Nombre:</label>
-                                <input type="text" class="form-control" name="nombre" placeholder="Johnnie" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Apellido:</label>
-                                <input type="text" class="form-control" name="apellido" placeholder="Walker" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">E-mail</label>
-                                <input type="email" class="form-control" name="mail" placeholder="ejemplo@ejemplo.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre de usuario:</label>
-                                <input type="text" class="form-control" name="nombre-usuario" placeholder="johnw" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Cotraseña:</label>
-                                <input type="password" class="form-control" name="password" placeholder="ejemplo" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary" name="btnIngresar">Registrarse</button>
-                            <a class="pull-right" href="index.php">Volver a la página principal</a>
-                        </form>
+                <h1>Ingreso a Grape</h1>
+                <?php
+                    include("conexion.inc");
+                    $nombreUsuario = $_POST['nombre-usuario'];
+                    $password = $_POST['password'];
+
+                    $consulta = "select count(id_usuario) from usuarios where nombre_usuario ='$nombreUsuario' and contrasenia = '$password'";
+                    $resultado = mysqli_query($link, $consulta) or die (mysqli_error($link));
+                    $resultado_array = mysqli_fetch_array($resultado);
+                    if($resultado_array[0] != 0)
+                    {
+                        echo "<p>Has sido logueado correctamente, $nombreUsuario.</p>";
+                        $_SESSION['nombre_usuario'] = $nombreUsuario;
+                    }
+                    else {
+                        echo "<p>El usuario y/o la contraseña no es correcto.</p>";
+                    }
+                    mysqli_close($link);
+                ?>
+                <a class="pull-right" href="index.php">Volver a la página principal</a>
                 </div>
             </div>
         </div>
-        <!-- /.container -->
 
         <div class="container">
-            <hr>
-            <!-- Footer -->
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Copyright &copy; The Grape Company 2017</p>
-                    </div>
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; The Grape Company 2017</p>
                 </div>
-            </footer>
+            </div>
+        </footer>
         </div>
         <!-- /.container -->
 
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
