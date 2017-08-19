@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <title>Eliminar Producto</title>
   </head>
   <body>
+    <h1>Baja de producto</h1>
     <?php
       include("conexion.inc");
 
@@ -13,7 +14,7 @@
 
       $resultado = mysqli_query($link, $vEliminar) or die(mysqli_error($link));
       if($resultado) {
-        echo "<p>Producto eliminado correctamente.</p>";
+        echo "<h4>Producto eliminado correctamente.</h4>";
       }
 
       mysqli_close($link);

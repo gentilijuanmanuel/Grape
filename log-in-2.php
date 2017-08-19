@@ -2,7 +2,7 @@
     session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,7 +52,7 @@
             </ul>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar whiskies, vinos...">
+                <input type="text" title="Buscar" class="form-control" placeholder="Buscar whiskies, vinos...">
                 </div>
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <title>Listado de productos</title>
@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Grape</a>
+          <a class="navbar-brand" href="index.php">Grape</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,7 +35,7 @@
           </ul>
           <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
+              <input type="text" title="Buscar" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
@@ -75,13 +75,13 @@
       <div class="form-inline">
 
       <form class="form-group" action="form-alta-producto.php" method="post">
-        <button type="submit" class="btn btn-primary">Nuevo</button>
+        <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
       </form>
       <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
-        <label>ID: </label>
-        <input type="number" name="ID">
-        <button type="submit" name="Modificar" class="btn btn-success">Modificar</button>
-        <button type="submit" name="Elimminar" class="btn btn-danger">Eliminar</button>
+        <label for="ID">ID: </label>
+        <input title="ID" type="number" name="ID">
+        <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
+        <button type="submit" title="Modificar" name="Elimminar" class="btn btn-danger">Eliminar</button>
       </form>
 
   </body>

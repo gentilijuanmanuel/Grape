@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -47,18 +47,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Grape</a>
+          <a class="navbar-brand" href="index.php">Grape</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Sobre nosotros <span class="sr-only">(current)</span></a></li>
-
-          </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="log-in.php">Entrar <span class="sr-only">(current)</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="registrarse.html">Registrarse <span class="sr-only">(current)</span></a></li>
+            </ul>
           <form class="navbar-form navbar-right"  action="resultado-busqueda.php" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
+              <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
@@ -87,7 +89,7 @@
 
             <div class="col-md-9">
                 <div class="row">
-
+                 <h1>Vodkas</h1>
                 <?php
                 if(mysqli_num_rows($vResult) == "0")
                 {
@@ -100,10 +102,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="<?php echo $vReg['url_imagen'] ?>" alt="">
+                            <img src="<?php echo $vReg['url_imagen'] ?>" alt="<?php echo $vReg['descripcion'] ?>">
                             <div class="caption">
-                                <h4 class="pull-right"><?php echo "$".$vReg['precio'] ?></h4>
-                                <h4><?php echo $vReg['nombre'] ?>
+                                <h4><p class="pull-right"><?php echo "$".$vReg['precio'] ?></p>
+                                <?php echo $vReg['nombre'] ?>
                                 </h4>
                                 <p><?php echo $vReg['descripcion'] ?></p>
                             </div>

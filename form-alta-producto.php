@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,9 +47,9 @@
           </ul>
           <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
-            </div>
+              <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
             <button type="submit" class="btn btn-default">Buscar</button>
+            </div>
           </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -58,14 +58,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
+          <h1>Crear un nuevo producto</h1>
           <form class="" action="alta-producto.php" method="post" name="submit" >
             <div class="form-group">
-              <label>Nombre bebida</label>
-              <input type="text" name="nombre" class="form-control">
+              <label for="nombre">Nombre bebida</label>
+              <input type="text" name="nombre" title="Crear" class="form-control">
             </div>
             <div class="form-group">
-              <label>Tipo de bebida</label>
-              <select class="form-control" name="tipo_bebida">
+              <label for="tipo_bebida">Tipo de bebida</label>
+              <select class="form-control" title="Crear" name="tipo_bebida">
                 <?php
                 while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
                   echo $row['nombre'];
@@ -75,18 +76,18 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Precio</label>
-              <input type="text" name="precio" class="form-control">
+              <label for="precio">Precio</label>
+              <input type="text" title="Crear" name="precio" class="form-control">
             </div>
 
             <div class="form-group">
-              <label>Descripcion</label>
-              <input type="text" name="descripcion" class="form-control">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" title="Crear" name="descripcion" class="form-control">
             </div>
 
             <div class="form-group">
-              <label>Marca</label>
-              <input type="text" name="marca" class="form-control">
+              <label for="marca">Marca</label>
+              <input type="text" title="Crear" name="marca" class="form-control">
             </div>
             <a href="#" onClick="window.open('Cargar-imagen.html', 'ImaGen', 'resizable, height=300, width=500'); return false;">Cargar Imagen</a>
             <br><br>

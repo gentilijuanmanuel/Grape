@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -58,7 +58,7 @@
           </ul>
           <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
+              <input type="text" title="Buscar" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
@@ -87,7 +87,7 @@
 
             <div class="col-md-9">
                 <div class="row">
-
+                <h1>Resultado de la Busqueda</h1>
                 <?php
                 if(mysqli_num_rows($vResult) == "0")
                 {
@@ -100,10 +100,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="<?php echo $vReg['url_imagen'] ?>" alt="">
+                            <img src="<?php echo $vReg['url_imagen'] ?>" alt="<?php echo $vReg['descripcion'] ?>">
                             <div class="caption">
-                                <h4 class="pull-right"><?php echo "$". $vReg['precio'] ?></h4>
-                                <h4><?php echo $vReg['nombre'] ?>
+                                <h4><p class="pull-right"><?php echo "$". $vReg['precio'] ?></p>
+                                <?php echo $vReg['nombre'] ?>
                                 </h4>
                                 <p><?php echo $vReg['descripcion'] ?></p>
                             </div>

@@ -2,7 +2,7 @@
     session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 
     <meta charset="utf-8">
@@ -65,7 +65,7 @@
         ?>
           <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
+              <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
@@ -106,13 +106,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="images/dom-perignon.jpg" alt="">
+                                    <img class="slide-image" src="images/dom-perignon.jpg" alt="Dom perignon">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="images/wine.jpg" alt="">
+                                    <img class="slide-image" src="images/wine.jpg" alt="Vino">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="images/trago.jpg" alt="">
+                                    <img class="slide-image" src="images/trago.jpg" alt="Trago">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -127,13 +127,14 @@
                 </div>
 
                 <div class="row">
-
+                   <h1>Destacados</h1>
                     <div class="col-sm-4 col-lg-4 col-md-4">
+                       
                         <div class="thumbnail">
-                            <img src="images/blue-label.jpg" alt="">
+                            <img src="images/blue-label.jpg" alt="Jhonnie Walker Blue Label">
                             <div class="caption">
-                                <h4 class="pull-right">$999.90</h4>
-                                <h4><a href="#">JW Blue Label</a>
+                                <h4><p title="Precio" class="pull-right">$999.90</p>
+                                <a href="#">JW Blue Label</a>
                                 </h4>
                                 <p>Whisky Johnnie Walker Blue Label. 15 años de añejamiento.</p>
                             </div>
@@ -152,10 +153,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/ruttini.jpg" alt="">
+                            <img src="images/ruttini.jpg" alt="Vino Ruttini">
                             <div class="caption">
-                                <h4 class="pull-right">$499.99</h4>
-                                <h4><a href="#">Ruttini Cabernet</a>
+                                <h4><p title="Precio" class="pull-right">$499.99</p>
+                                <a href="#">Ruttini Cabernet</a>
                                 </h4>
                                 <p>Ruttini Cabernet Sauvignon Cosecha 2012.</p>
                             </div>
@@ -174,10 +175,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/dom-perignon-rose.jpg" alt="">
+                            <img src="images/dom-perignon-rose.jpg" alt="Dom perignon rose">
                             <div class="caption">
-                                <h4 class="pull-right">$4999,90</h4>
-                                <h4><a href="#">Dom Pérignon</a>
+                                <h4><p title="Precio" class="pull-right">$4999,90</p>
+                                <a href="#">Dom Pérignon</a>
                                 </h4>
                                 <p>Shampagne Dom Pérignon Rosé</p>
                             </div>
@@ -196,10 +197,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/baron-b.jpg" alt="">
+                            <img src="images/baron-b.jpg" alt="Champagne Baron B">
                             <div class="caption">
-                                <h4 class="pull-right">$699,90</h4>
-                                <h4><a href="#">Baron B Extra Brut</a>
+                                <h4><p title="Precio" class="pull-right">$699,90</p>
+                                <a href="#">Baron B Extra Brut</a>
                                 </h4>
                                 <p>Shampagne Baron B Extra Brut.</p>
                             </div>
@@ -218,10 +219,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/absolut-pear.jpg" alt="">
+                            <img src="images/absolut-pear.jpg" alt="Vodka Absolut pera">
                             <div class="caption">
-                                <h4 class="pull-right">$459.99</h4>
-                                <h4><a href="#">Absolut Pear</a>
+                                <h4><p title="Precio" class="pull-right">$459.99</p>
+                                <a href="#">Absolut Pear</a>
                                 </h4>
                                 <p>Vodka Absolut sabor pera.</p>
                             </div>
@@ -240,10 +241,10 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/gold-label.jpg" alt="">
+                            <img src="images/gold-label.jpg" alt="Jhonnie Walker Gold Label">
                             <div class="caption">
-                                <h4 class="pull-right">$1499.99</h4>
-                                <h4><a href="#">JW Gold Label</a>
+                                <h4><p title="Precio" class="pull-right">$1499.99</p>
+                                <a href="#">JW Gold Label</a>
                                 </h4>
                                 <p>Whisky Johnnie Walker Gold Label. 20 años de añejamiento.</p>
                             </div>

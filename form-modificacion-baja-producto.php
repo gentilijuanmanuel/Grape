@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <title><?php if(isset($_POST['Modificar']))
@@ -41,7 +41,7 @@
           </ul>
           <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" name="busqueda" placeholder="Buscar whiskies, vinos...">
+              <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
@@ -58,12 +58,12 @@
         <div class="col-md-4 col-md-offset-4">
           <form class="" action="modificar-producto.php" method="post">
             <div class="form-group">
-              <label>Nombre bebida</label>
-              <input type="text" name="nombre" class="form-control" value="<?php echo $Producto['nombre']; ?>">
+              <label for="nombre">Nombre bebida</label>
+              <input type="text" title="Modificar producto" name="nombre" class="form-control" value="<?php echo $Producto['nombre']; ?>">
             </div>
             <div class="form-group">
-              <label>Tipo de bebida</label>
-              <select class="form-control" name="tipo_bebida">
+              <label for="tipo_bebida">Tipo de bebida</label>
+              <select class="form-control" title="Modificar producto" name="tipo_bebida">
                 <?php
                 while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
                   if($Producto['id_tipo_bebida'] == $row['id_tipo_bebida'])
@@ -80,23 +80,20 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Precio</label>
-              <input type="text" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>">
+              <label for="precio">Precio</label>
+              <input type="text" title="Modificar producto" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>">
             </div>
-            <input type="text" hidden="true" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
+            <input type="text" hidden="true" title="Modificar producto" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
             <div class="form-group">
-              <label>Descripcion</label>
-              <input type="text" name="descripcion" class="form-control" value="<?php echo $Producto['descripcion']; ?>">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" name="descripcion" title="Modificar producto" class="form-control" value="<?php echo $Producto['descripcion']; ?>">
             </div>
 
             <div class="form-group">
-              <label>Marca</label>
-              <input type="text" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>">
+              <label for="marca">Marca</label>
+              <input type="text" name="marca" title="Modificar producto" class="form-control" value="<?php echo $Producto['marca']; ?>">
             </div>
-            <button type="submit" class="btn btn-primary"><?php if(isset($_POST['Modificar']))
-            { echo "Modificar producto";}
-            else
-            {echo "Eliminar producto";}; ?></button>
+            <button type="submit" class="btn btn-primary">Modificar producto</button>
             | <a href="listado-productos.php">Volver<a>
           </form>
         </div>
@@ -109,12 +106,12 @@
           <div class="col-md-4 col-md-offset-4">
             <form class="" action="eliminar-producto.php" method="post">
               <div class="form-group">
-                <label>Nombre bebida</label>
-                <input type="text" name="nombre" class="form-control" disabled="true" value="<?php echo $Producto['nombre']; ?>">
+                <label for="nombre">Nombre bebida</label>
+                <input type="text" title="Eliminar producto" name="nombre" class="form-control" disabled="true" value="<?php echo $Producto['nombre']; ?>">
               </div>
               <div class="form-group">
-                <label>Tipo de bebida</label>
-                <select class="form-control" disabled="true" name="tipo_bebida">
+                <label for="tipo_bebida">Tipo de bebida</label>
+                <select class="form-control" title="Eliminar producto" disabled="true" name="tipo_bebida">
                   <?php
                   while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
                     if($Producto['id_tipo_bebida'] == $row['id_tipo_bebida'])
@@ -131,25 +128,22 @@
                 </select>
               </div>
               <div class="form-group">
-                <label>Precio</label>
-                <input type="text" disabled="true" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>">
+                <label for="precio">Precio</label>
+                <input type="text" title="Eliminar producto" disabled="true" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>">
               </div>
 
               <div class="form-group">
-                <label>Descripcion</label>
-                <input type="text" disabled="true" name="descripcion" class="form-control" value="<?php echo $Producto['descripcion']; ?>">
+                <label for="descripcion">Descripcion</label>
+                <input type="text" disabled="true" name="descripcion" title="Eliminar producto" class="form-control" value="<?php echo $Producto['descripcion']; ?>">
               </div>
 
               <div class="form-group">
-                <label>Marca</label>
-                <input type="text" disabled="true" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>">
+                <label for="marca">Marca</label>
+                <input type="text" disabled="true" title="Eliminar producto" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>">
               </div>
-              <input type="text" hidden="true" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
+              <input type="text" hidden="true" title="Eliminar producto" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
 
-              <button type="submit" class="btn btn-danger"><?php if(isset($_POST['Modificar']))
-              { echo "Modificar producto";}
-              else
-              {echo "Eliminar producto";}; ?></button>
+              <button type="submit" class="btn btn-danger">Eliminar producto</button>
               | <a href="listado-productos.php">Volver<a>
             </form>
           </div>
