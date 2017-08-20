@@ -5,22 +5,32 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title><?php if(isset($_POST['Modificar']))
     { echo "Modificar producto";}
     else
     {echo "Eliminar producto";}; ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="css/style.css" media="screen" rel="StyleSheet" type="text/css">
   </head>
   <body>
-    <?php
-    include("conexion.inc");
-    $vQuery = "select * from tipos_bebidas";
-    $sql_tipos_bebida = mysqli_query($link, $vQuery);
-
-    $vQueryProducto = "select * from bebidas where id_bebida = "."'".$_POST["ID"]."'";
-    $Producto_seleccionado = mysqli_query($link, $vQueryProducto);
-    $Producto = mysqli_fetch_assoc($Producto_seleccionado);
-    ?>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -61,11 +71,22 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-<?php if(isset($_POST['Modificar'])){ ?>
+  
+    <?php
+    if(isset($_SESSION['tipo_usuario'])) {
+      $tipo_usuario = $_SESSION['tipo_usuario'];
+      if($tipo_usuario == 1) {
+  ?>
+  <?php
+    include("conexion.inc");
+    $vQuery = "select * from tipos_bebidas";
+    $sql_tipos_bebida = mysqli_query($link, $vQuery);
+
+    $vQueryProducto = "select * from bebidas where id_bebida = "."'".$_POST["ID"]."'";
+    $Producto_seleccionado = mysqli_query($link, $vQueryProducto);
+    $Producto = mysqli_fetch_assoc($Producto_seleccionado);
+    ?>
+    <?php if(isset($_POST['Modificar'])){ ?>
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -163,6 +184,36 @@
         </div>
       </div>
 
-    <?php } ?>
+    <?php
+      }
+    ?>
+    <?php
+      }
+    } else {
+      ?>
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+          <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
+          <a href="index.php">Volver a la página principal</a>
+        </div>
+      </div>
+      </div>
+    <?php
+    }
+    ?>
+
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; The Grape Company 2017</p>
+                </div>
+            </div>
+        </footer>
+    </div>
   </body>
 </html>

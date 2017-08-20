@@ -84,7 +84,13 @@
                     if($resultado_array[0] != 0)
                     {
                         echo "<p>Has sido logueado correctamente, $nombreUsuario.</p>";
+                        $consultaTipoUsuario = "select tipo_usuario from usuarios where nombre_usuario = '$nombreUsuario'";
+                        $resultadoConsultaTipoUsuario = mysqli_query($link, $consultaTipoUsuario) or die (mysqli_error($link));
+                        $resultadoConsultaTipoUsuario_array = mysqli_fetch_array($resultadoConsultaTipoUsuario);
+                        $fecha = date("Y-n-j H:i:s");
+                        $_SESSION['ultimoAcceso'] = $fecha;
                         $_SESSION['nombre_usuario'] = $nombreUsuario;
+                        $_SESSION['tipo_usuario'] = $resultadoConsultaTipoUsuario_array[0];
                     }
                     else {
                         echo "<p>El usuario y/o la contraseña no es correcto.</p>";

@@ -1,5 +1,16 @@
 <?php
     session_start();
+    if(isset($_SESSION['ultimoAcceso']) && isset($_SESSION['nombre_usuario'])) {
+        $fechaGuardada = $_SESSION['ultimoAcceso'];
+        $ahora = date("Y-n-j H:i:s"); 
+        $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
+    
+        if($tiempo_transcurrido >= 60) { 
+            session_destroy();
+        } else { 
+            $_SESSION['ultimoAcceso'] = $ahora; 
+        } 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

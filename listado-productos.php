@@ -5,8 +5,27 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Listado de productos</title>
+
+    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="css/style.css" media="screen" rel="StyleSheet" type="text/css">
 
   </head>
   <body>
@@ -55,47 +74,93 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-    <br>
-    <br>
-    <div class="container">
-      <h1>Tabla de bebidas</h1>
-      <table class="table table-hover table-striped">
-        <tr>
-          <th>ID bebida</th>
-          <th>Nombre</th>
-          <th>Descripcion</th>
-          <th>Precio</th>
-          <th>Marca</th>
-        </tr>
-        <?php
-        while($fila = mysqli_fetch_array($vResult))
-        {
-          echo "<tr>";
-            echo "<td>".$fila['id_bebida']."</td>";
-            echo "<td>".$fila['nombre']."</td>";
-            echo "<td>".$fila['descripcion']."</td>";
-            echo "<td>".$fila['precio']."</td>";
-            echo "<td>".$fila['marca']."</td>";
-            echo "</tr>";
-        }
 
-        mysqli_close($link);
-         ?>
+  <?php
+    if(isset($_SESSION['tipo_usuario'])) {
+      $tipo_usuario = $_SESSION['tipo_usuario'];
+      if($tipo_usuario == 1) {
+  ?>
+        <br>
+        <br>
+        <div class="container">
+          <h1>Tabla de bebidas</h1>
+          <table class="table table-hover table-striped">
+            <tr>
+              <th>ID bebida</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Precio</th>
+              <th>Marca</th>
+            </tr>
+            <?php
+            while($fila = mysqli_fetch_array($vResult))
+            {
+              echo "<tr>";
+                echo "<td>".$fila['id_bebida']."</td>";
+                echo "<td>".$fila['nombre']."</td>";
+                echo "<td>".$fila['descripcion']."</td>";
+                echo "<td>".$fila['precio']."</td>";
+                echo "<td>".$fila['marca']."</td>";
+                echo "</tr>";
+            }
 
-      </table>
-      <br>
-      <br>
-      <div class="form-inline">
+            mysqli_close($link);
+            ?>
 
-      <form class="form-group" action="form-alta-producto.php" method="post">
-        <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
-      </form>
-      <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
-        <label for="ID">ID: </label>
-        <input title="ID" type="number" name="ID">
-        <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
-        <button type="submit" title="Modificar" name="Elimminar" class="btn btn-danger">Eliminar</button>
-      </form>
+          </table>
+          <br>
+          <br>
+          <div class="form-inline">
 
-  </body>
+          <form class="form-group" action="form-alta-producto.php" method="post">
+            <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
+          </form>
+          <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
+            <label for="ID">ID: </label>
+            <input title="ID" type="number" name="ID">
+            <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
+            <button type="submit" title="Modificar" name="Elimminar" class="btn btn-danger">Eliminar</button>
+          </form>
+      <?php
+        } else {
+          ?>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+                  <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
+                  <a href="index.php">Volver a la página principal</a>
+                </div>
+              </div>
+            </div>
+
+          <?php
+      }
+    } else {
+      ?>
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+          <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
+          <a href="index.php">Volver a la página principal</a>
+        </div>
+      </div>
+      </div>
+    <?php
+    }
+    ?>
+
+<div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; The Grape Company 2017</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
 </html>
