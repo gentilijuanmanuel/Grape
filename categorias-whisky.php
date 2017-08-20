@@ -98,7 +98,7 @@
                 </form>
               </div>
           </div>
-  
+
             <div class="col-md-9">
                 <div class="row">
                   <h1>Whiskies</h1>
@@ -117,20 +117,15 @@
                             <img src="<?php echo $vReg['url_imagen'] ?>" alt="<?php echo $vReg['descripcion'] ?>">
                             <div class="caption">
                                 <h4><p class="pull-right"><?php echo "$". $vReg['precio'] ?></p>
-                                <?php echo $vReg['nombre'] ?>
+                                  <form action="detalle-producto.php" method="post" name="form<?php echo $vReg['id_bebida']; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo $vReg['id_bebida']; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo $vReg['id_bebida']; ?>'].submit();"><?php echo $vReg['nombre'] ?></a>
+                                  </form>
+
                                 </h4>
                                 <p><?php echo $vReg['descripcion'] ?></p>
                             </div>
-                            <div class="">
-                            <form class="form-inline" action="addToCart.php" method="post">
-                              <div class="form-group" style="margin-right:60px;">
-                                <label for="cantidad">Cantidad: </label>
-                                <input type="number" title="Cantidad" style="width:40px;" name="cantidad" value="">
-                              <button class="glyphicon glyphicon-shopping-cart btn btn-default" type="submit" name="button"></button>
-                              </div>
 
-                            </form>
-                           </div>
                             <br>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>

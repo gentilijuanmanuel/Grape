@@ -116,7 +116,10 @@
                             <img src="<?php echo $vReg['url_imagen'] ?>" alt="<?php echo $vReg['descripcion'] ?>">
                             <div class="caption">
                                 <h4><p class="pull-right"><?php echo "$". $vReg['precio'] ?></p>
-                                <?php echo $vReg['nombre'] ?>
+                                  <form action="detalle-producto.php" method="post" name="form<?php echo $vReg['id_bebida']; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo $vReg['id_bebida']; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo $vReg['id_bebida']; ?>'].submit();"><?php echo $vReg['nombre'] ?></a>
+                                  </form>
                                 </h4>
                                 <p><?php echo $vReg['descripcion'] ?></p>
                             </div>
