@@ -81,7 +81,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
+                <div class="col-md-12">
                 <h1>Ingreso a Grape</h1>
                 <?php
                     include("conexion.inc");
@@ -104,12 +104,12 @@
                     }
                     else {
                         echo "<p>El usuario y/o la contraseña no es correcto.</p>";
+                        echo "<a href='log-in.php'>Volver a ingresar datos</a>";
+                        echo "<br>";
                     }
                     mysqli_close($link);
                 ?>
-                <a class="pull-right" href="log-in.php">Volver a ingresar datos</a>
-                <br>
-                <a class="pull-right" href="index.php">Volver a la página principal</a>
+                <a href="index.php">Volver a la página principal</a>
                 </div>
             </div>
         </div>

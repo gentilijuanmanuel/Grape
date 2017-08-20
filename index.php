@@ -91,6 +91,13 @@
                         <button type="submit" class="btn btn-danger">Cerrar sesión</button>
                     </form>
                 <?php
+                if($_SESSION['tipo_usuario'] == 1) {
+                    ?>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="listado-productos.php">Panel de control de administrador<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    <?php
+                }
             }
         ?>
         </div><!-- /.navbar-collapse -->

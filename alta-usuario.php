@@ -97,6 +97,8 @@
                         if($resultado_array[0] != 0)
                         {
                             echo "<p>El nombre de usuario ya existe. Intente insertando otros datos.</p>";
+                            echo "<a href='registrarse.php'>Volver al formulario de registro</a>";
+                            echo "<br>";
                         }
                         else {
                             $alta = "insert into usuarios(nombre, apellido, mail, nombre_usuario, contrasenia, tipo_usuario) values ('$nombre', '$apellido','$mail','$usuario','$password', 0)";
@@ -110,8 +112,6 @@
                         }
                         mysqli_close($link);
                     ?>
-                    <a href="registrarse.php">Volver al formulario de registro</a>
-                    <br>
                     <a href="index.php">Volver a la página principal</a>
                 </div>
             </div>
