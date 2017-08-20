@@ -60,7 +60,7 @@
               echo '<li class="active"><a href="log-in.php">Entrar <span class="sr-only">(current)</span></a></li>';
               echo '</ul>';
               echo '<ul class="nav navbar-nav">';
-              echo '<li class="active"><a href="registrarse.html">Registrarse <span class="sr-only">(current)</span></a></li>';
+              echo '<li class="active"><a href="registrarse.php">Registrarse <span class="sr-only">(current)</span></a></li>';
               echo '</ul>';
           }
       ?>
@@ -90,7 +90,7 @@
                       <input type="password" class="form-control" name="password" placeholder="ejemplo" required>
                     </div>
                     <button type="submit" class="btn btn-primary" name="btnIngresar">Ingresar</button>
-                    <a class="pull-right" href="registrarse.html">Crear una cuenta nueva</a>
+                    <a class="pull-right" href="registrarse.php">Crear una cuenta nueva</a>
                     <a class="pull-right" href="index.php">Volver a la página principal</a>
                 </form>
             </div>

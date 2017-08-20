@@ -55,7 +55,7 @@
                   echo '<li class="active"><a href="log-in.php">Entrar <span class="sr-only">(current)</span></a></li>';
                   echo '</ul>';
                   echo '<ul class="nav navbar-nav">';
-                  echo '<li class="active"><a href="registrarse.html">Registrarse <span class="sr-only">(current)</span></a></li>';
+                  echo '<li class="active"><a href="registrarse.php">Registrarse <span class="sr-only">(current)</span></a></li>';
                   echo '</ul>';
               }
           ?>

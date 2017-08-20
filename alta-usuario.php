@@ -55,7 +55,7 @@
                     echo '<li class="active"><a href="log-in.php">Entrar <span class="sr-only">(current)</span></a></li>';
                     echo '</ul>';
                     echo '<ul class="nav navbar-nav">';
-                    echo '<li class="active"><a href="registrarse.html">Registrarse <span class="sr-only">(current)</span></a></li>';
+                    echo '<li class="active"><a href="registrarse.php">Registrarse <span class="sr-only">(current)</span></a></li>';
                     echo '</ul>';
                 }
             ?>
@@ -92,12 +92,15 @@
                             $alta = "insert into usuarios(nombre, apellido, mail, nombre_usuario, contrasenia, tipo_usuario) values ('$nombre', '$apellido','$mail','$usuario','$password', 0)";
                             $resultado = mysqli_query($link, $alta) or die (mysqli_error($link));
                             if($resultado) {
-                                echo "<p>La ciudad ha sido agregada correctamente.</p>";
+                                echo "<p>El usuario ha sido agregado correctamente.</p>";
+                                $_SESSION['nombre_usuario'] = $usuario;
+                                $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
+                                $_SESSION['tipo_usuario'] = 0;
                             }
                         }
                         mysqli_close($link);
                     ?>
-                    <a href="registrarse.html">Volver al formulario de registro</a>
+                    <a href="registrarse.php">Volver al formulario de registro</a>
                     <br>
                     <a href="index.php">Volver a la página principal</a>
                 </div>
