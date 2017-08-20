@@ -74,6 +74,9 @@
                 echo '</ul>';
             }
         ?>
+          <ul class="nav navbar-nav">'
+            <li class="active"><a href="#" onClick="window.open('formulario.html', 'Contacto', 'resizable, height=500, width=500'); return false;">Contáctenos</a></li>
+          </ul>
           <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
             <div class="form-group">
               <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
