@@ -81,7 +81,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  
+
     <?php
     if(isset($_SESSION['tipo_usuario'])) {
       $tipo_usuario = $_SESSION['tipo_usuario'];
@@ -137,6 +137,10 @@
               <label for="marca">Marca</label>
               <input type="text" name="marca" title="Modificar producto" class="form-control" value="<?php echo $Producto['marca']; ?>">
             </div>
+            <div class="form-group">
+              <label for="detalle">Detalle</label>
+              <textarea type="text" name="detalle" title="Modificar producto" class="form-control" value="<?php echo $Producto['detalle']; ?>"></textarea>
+            </div>
             <button type="submit" class="btn btn-primary">Modificar producto</button>
             | <a href="listado-productos.php">Volver<a>
           </form>
@@ -184,6 +188,10 @@
               <div class="form-group">
                 <label for="marca">Marca</label>
                 <input type="text" disabled="true" title="Eliminar producto" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>">
+              </div>
+              <div class="form-group">
+                <label for="detalle">Detalle</label>
+                <textarea type="text" name="detalle" disabled="true" title="Modificar producto" class="form-control" value="<?php echo $Producto['detalle']; ?>"></textarea>
               </div>
               <input type="text" hidden="true" title="Eliminar producto" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
 

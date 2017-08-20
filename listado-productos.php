@@ -101,6 +101,7 @@
               <th>Descripcion</th>
               <th>Precio</th>
               <th>Marca</th>
+              <th>Detalle</th>
             </tr>
             <?php
             while($fila = mysqli_fetch_array($vResult))
@@ -111,6 +112,7 @@
                 echo "<td>".$fila['descripcion']."</td>";
                 echo "<td>".$fila['precio']."</td>";
                 echo "<td>".$fila['marca']."</td>";
+                echo "<td>".$fila['detalle']."</td>";
                 echo "</tr>";
             }
 

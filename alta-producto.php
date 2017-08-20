@@ -80,7 +80,7 @@
     <div class="container">
       <div class="row">
         <div class="col col-md-6">
-          <h1>Insertar una nueva ciudad</h1>
+          <h1>Insertar un nuevo Producto</h1>
           <?php
             include("conexion.inc");
             $nombre = $_POST['nombre'];
@@ -89,14 +89,15 @@
             $marca = $_POST['marca'];
             $tipo_bebida = $_POST['tipo_bebida'];
             $ubicacion_imagen=$_SESSION['ubicacion-imagen'];
-            $vAlta = "insert into bebidas(nombre, precio, descripcion, id_tipo_bebida, marca, url_imagen) values ('$nombre', '$precio','$descripcion','$tipo_bebida','$marca', '$ubicacion_imagen')";
+            $detalle = $_POST['detalle'];
+            $vAlta = "insert into bebidas(nombre, precio, descripcion, id_tipo_bebida, marca, url_imagen, detalle) values ('$nombre', '$precio','$descripcion','$tipo_bebida','$marca', '$ubicacion_imagen','$detalle')";
             $resultado = mysqli_query($link, $vAlta) or die (mysqli_error($link));
             if($resultado) {
-              echo "<p>La ciudad ha sido agregada correctamente.</p>";
+              echo "<p>El producto ha sido agregada correctamente.</p>";
             }
             mysqli_close($link);
           ?>
-          <a href="form-alta-producto.php">Volver al listado</a>  
+          <a href="listado-productos.php">Volver al listado</a>
         </div>
       </div>
     </div>

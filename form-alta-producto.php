@@ -124,9 +124,15 @@
               <label for="marca">Marca</label>
               <input type="text" title="Crear" name="marca" class="form-control">
             </div>
+            <div class="form-group">
+              <label for="detalle">Detalle</label>
+              <textarea type="text" name="detalle" title="Modificar producto" class="form-control" value=""></textarea>
+            </div>
             <a href="#" onClick="window.open('Cargar-imagen.html', 'ImaGen', 'resizable, height=300, width=500'); return false;">Cargar Imagen</a>
             <br><br>
             <button type="submit" class="btn btn-primary">Crear</button>
+            | <a href="listado-productos.php">Volver</a>
+
           </form>
         </div>
       </div>
