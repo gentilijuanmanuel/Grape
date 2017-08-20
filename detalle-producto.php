@@ -51,6 +51,16 @@
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>
+
+          <?php
+            if(isset($_SESSION['nombre_usuario'])) {
+                ?>
+                    <form action="cerrar-sesion.php" class="navbar-form navbar-right" method="post">
+                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                    </form>
+                <?php
+            }
+        ?>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
