@@ -165,7 +165,10 @@
                             <img src="images/blue-label.jpg" alt="Jhonnie Walker Blue Label">
                             <div class="caption">
                                 <h4><p title="Precio" class="pull-right">$999.90</p>
-                                <a href="#">JW Blue Label</a>
+                                <form action="detalle-producto.php" method="post" name="form<?php echo 1; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 1; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 1; ?>'].submit();"><?php echo 'JW Blue Label' ?></a>
+                                </form> 
                                 </h4>
                                 <p>Whisky Johnnie Walker Blue Label. 15 años de añejamiento.</p>
                             </div>
@@ -187,9 +190,12 @@
                             <img src="images/ruttini.jpg" alt="Vino Ruttini">
                             <div class="caption">
                                 <h4><p title="Precio" class="pull-right">$499.99</p>
-                                <a href="#">Ruttini Cabernet</a>
+                                <form action="detalle-producto.php" method="post" name="form<?php echo 3; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 3; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 3; ?>'].submit();"><?php echo 'Ruttini Cavernet' ?></a>
+                                </form> 
                                 </h4>
-                                <p>Ruttini Cabernet Sauvignon Cosecha 2012.</p>
+                                <p>Ruttini Cavernet Sauvignon Cosecha 2012.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">12 reviews</p>
@@ -209,9 +215,12 @@
                             <img src="images/dom-perignon-rose.jpg" alt="Dom perignon rose">
                             <div class="caption">
                                 <h4><p title="Precio" class="pull-right">$4999,90</p>
-                                <a href="#">Dom Pérignon</a>
+                                <form action="detalle-producto.php" method="post" name="form<?php echo 4; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 4; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 4; ?>'].submit();"><?php echo 'Dom Perignon Rosé' ?></a>
+                                </form> 
                                 </h4>
-                                <p>Shampagne Dom Pérignon Rosé</p>
+                                <p> Shampagne Dom Perignon Rosé</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">31 reviews</p>
@@ -231,7 +240,10 @@
                             <img src="images/baron-b.jpg" alt="Champagne Baron B">
                             <div class="caption">
                                 <h4><p title="Precio" class="pull-right">$699,90</p>
-                                <a href="#">Baron B Extra Brut</a>
+                                <form action="detalle-producto.php" method="post" name="form<?php echo 5; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 5; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 5; ?>'].submit();"><?php echo 'Baron B' ?></a>
+                                </form> 
                                 </h4>
                                 <p>Shampagne Baron B Extra Brut.</p>
                             </div>
@@ -253,7 +265,10 @@
                             <img src="images/absolut-pear.jpg" alt="Vodka Absolut pera">
                             <div class="caption">
                                 <h4><p title="Precio" class="pull-right">$459.99</p>
-                                <a href="#">Absolut Pear</a>
+                                <form action="detalle-producto.php" method="post" name="form<?php echo 6; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 6; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 6; ?>'].submit();"><?php echo 'Absolut Pear' ?></a>
+                                </form> 
                                 </h4>
                                 <p>Vodka Absolut sabor pera.</p>
                             </div>
@@ -275,7 +290,10 @@
                             <img src="images/gold-label.jpg" alt="Jhonnie Walker Gold Label">
                             <div class="caption">
                                 <h4><p title="Precio" class="pull-right">$1499.99</p>
-                                <a href="#">JW Gold Label</a>
+                                <form action="detalle-producto.php" method="post" name="form<?php echo 2; ?>">
+                                    <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 2; ?>">
+                                    <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 2; ?>'].submit();"><?php echo 'JW Gold Label' ?></a>
+                                </form> 
                                 </h4>
                                 <p>Whisky Johnnie Walker Gold Label. 20 años de añejamiento.</p>
                             </div>

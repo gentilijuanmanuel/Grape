@@ -83,7 +83,7 @@
             </div>
             <div class="col-md-9">
               <div class="row">
-                <h1>Detalle del producto:</h1>
+                <h1>Detalle del producto</h1>
               </div>
             </div>
           <div class="col-md-offset-1 col-md-3 thumbnail">
