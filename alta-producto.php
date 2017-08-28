@@ -1,14 +1,15 @@
 <?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Insertar una bebida nueva</title>
+    <title>Grape - El mejor sitio de e-commerce para bebidas</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,63 +25,80 @@
     <![endif]-->
 
     <link href="css/style.css" media="screen" rel="StyleSheet" type="text/css">
-  </head>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|EB+Garamond" rel="stylesheet">
+
+</head>
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Grape</a>
-        </div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Grape</a>
+      </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <?php
-            if(isset($_SESSION['nombre_usuario'])) {
-                echo '<ul class="nav navbar-nav">';
-                echo '<li class="active"><a href="#">'.$_SESSION['nombre_usuario'].'<span class="sr-only">(current)</span></a></li>';
-                echo '</ul>';
-            }
-            else {
-                echo '<ul class="nav navbar-nav">';
-                echo '<li class="active"><a href="log-in.php">Entrar <span class="sr-only">(current)</span></a></li>';
-                echo '</ul>';
-                echo '<ul class="nav navbar-nav">';
-                echo '<li class="active"><a href="registrarse.php">Registrarse <span class="sr-only">(current)</span></a></li>';
-                echo '</ul>';
-            }
-        ?>
-          <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
-            <div class="form-group">
-              <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
-            </div>
-            <button type="submit" class="btn btn-default">Buscar</button>
-          </form>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <?php
+          if(isset($_SESSION['nombre_usuario'])) {
+              echo '<ul class="nav navbar-nav">';
+              echo '<li class="active"><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$_SESSION['nombre_usuario'].'<span class="sr-only">(current)</span></a></li>';
+              echo '</ul>';
+          }
+          else {
+              echo '<ul class="nav navbar-nav">';
+              echo '<li class="active"><a href="log-in.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Entrar<span class="sr-only">(current)</span></a></li>';
+              echo '</ul>';
+              echo '<ul class="nav navbar-nav">';
+              echo '<li class="active"><a href="registrarse.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registrarse<span class="sr-only">(current)</span></a></li>';
+              echo '</ul>';
+          }
+      ?>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" onClick="window.open('formulario.html', 'Contacto', 'resizable, height=500, width=500'); return false;"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Contáctenos</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="categorias.php"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Categorías</a></li>
+        </ul>
 
-          <?php
-            if(isset($_SESSION['nombre_usuario'])) {
-                ?>
-                    <form action="cerrar-sesion.php" class="navbar-form navbar-right" method="post">
-                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-                    </form>
-                <?php
-            }
-        ?>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+        <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
+          </div>
+          <button type="submit" class="btn btn-default">Buscar</button>
+        </form>
+
+      <?php
+          if(isset($_SESSION['nombre_usuario'])) {
+              ?>
+                  <form action="cerrar-sesion.php" class="navbar-form navbar-right" method="post">
+                      <button type="submit" class="btn btn-default">Cerrar sesión</button>
+                  </form>
+              <?php
+              if($_SESSION['tipo_usuario'] == 1) {
+                  ?>
+                      <ul class="nav navbar-nav">
+                          <li class="active"><a href="listado-productos.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
+                      </ul>
+                  <?php
+              }
+          }
+      ?>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
     <div class="container">
       <div class="row">
-        <div class="col col-md-6">
-          <h1>Insertar un nuevo Producto</h1>
+        <div class="col col-md-4 col-md-offset-4">
+          <h1>Insertar un nuevo producto</h1>
           <?php
             include("conexion.inc");
             $nombre = $_POST['nombre'];
@@ -93,7 +111,7 @@
             $vAlta = "insert into bebidas(nombre, precio, descripcion, id_tipo_bebida, marca, url_imagen, detalle) values ('$nombre', '$precio','$descripcion','$tipo_bebida','$marca', '$ubicacion_imagen','$detalle')";
             $resultado = mysqli_query($link, $vAlta) or die (mysqli_error($link));
             if($resultado) {
-              echo "<p>El producto ha sido agregada correctamente.</p>";
+              echo "<div class='alert alert-success' role='alert'>El producto ha sido agregado correctamente.</div>";
             }
             mysqli_close($link);
           ?>

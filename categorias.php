@@ -1,5 +1,16 @@
 <?php
     session_start();
+    if(isset($_SESSION['ultimoAcceso']) && isset($_SESSION['nombre_usuario'])) {
+        $fechaGuardada = $_SESSION['ultimoAcceso'];
+        $ahora = date("Y-n-j H:i:s"); 
+        $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
+    
+        if($tiempo_transcurrido >= 60) { 
+            session_destroy();
+        } else { 
+            $_SESSION['ultimoAcceso'] = $ahora; 
+        } 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -31,12 +42,9 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|EB+Garamond" rel="stylesheet">
 
 </head>
-  <body>
-    <?php
-    include("conexion.inc");
-    $vQuery = "select * from bebidas";
-    $vResult = mysqli_query($link, $vQuery);
-    ?>
+
+<body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -102,86 +110,74 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <?php
-    if(isset($_SESSION['tipo_usuario'])) {
-      $tipo_usuario = $_SESSION['tipo_usuario'];
-      if($tipo_usuario == 1) {
-  ?>
-        <br>
-        <br>
-        <div class="container">
-          <h1>Tabla de bebidas</h1>
-          <table class="table table-hover table-striped">
-            <tr>
-              <th>ID bebida</th>
-              <th>Nombre</th>
-              <th>Descripcion</th>
-              <th>Precio</th>
-              <th>Marca</th>
-              <th>Detalle</th>
-            </tr>
-            <?php
-            while($fila = mysqli_fetch_array($vResult))
-            {
-              echo "<tr>";
-                echo "<td>".$fila['id_bebida']."</td>";
-                echo "<td>".$fila['nombre']."</td>";
-                echo "<td>".$fila['descripcion']."</td>";
-                echo "<td>".$fila['precio']."</td>";
-                echo "<td>".$fila['marca']."</td>";
-                echo "<td>".$fila['detalle']."</td>";
-                echo "</tr>";
-            }
-
-            mysqli_close($link);
-            ?>
-
-          </table>
-          <br>
-          <br>
-          <div class="form-inline">
-
-          <form class="form-group" action="form-alta-producto.php" method="post">
-            <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
-          </form>
-          <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
-            <label for="ID">ID: </label>
-            <input title="ID" type="number" name="ID">
-            <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
-            <button type="submit" title="Modificar" name="Elimminar" class="btn btn-danger">Eliminar</button>
-          </form>
-      <?php
-        } else {
-          ?>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
-                  <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
-                  <a href="index.php">Volver a la página principal</a>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+                <div class="row carousel-holder">
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="images/dom-perignon.jpg" alt="Dom perignon">
+                                    <div class="carousel-caption">
+                                        <h3 style="font-family: 'EB Garamond', serif;">Dom Perignon</h3>
+                                        <p style="font-family: 'Dancing Script', cursive;">Energía en su punto álgido</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="images/wine.jpg" alt="Vino">
+                                    <div class="carousel-caption">
+                                        <h3 style="color: black; font-family: 'EB Garamond', serif;">Ruttini</h3>
+                                        <p style="color: black; font-family: 'Dancing Script', cursive;">Talento y sofisticación</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="images/trago.jpg" alt="Trago">
+                                    <div class="carousel-caption">
+                                        <h3 style="color: black; font-family: 'EB Garamond', serif;">Absolut</h3>
+                                        <p style="color: black; font-family: 'Dancing Script', cursive;">Descubre las mejores recetas de cocteles y bebidas</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-          <?php
-      }
-    } else {
-      ?>
-      <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
-          <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
-          <a href="index.php">Volver a la página principal</a>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Listado de categorías</div>
+                    <div class="panel-body">
+                        <p>Una lista interminable de las mejores opciones.</p>
+                    </div>
+
+                    <div class="list-group">
+                        <form action="filtro-categoria.php" method="post">
+                            <a style="text-align: center;" href="categorias-whisky.php" class="list-group-item">Whiskies</a>
+                            <a style="text-align: center;" href="categorias-champagne.php" class="list-group-item">Champagnes</a>
+                            <a style="text-align: center;" href="categorias-vinos.php" class="list-group-item">Vinos</a>
+                            <a style="text-align: center;" href="categorias-vodkas.php" class="list-group-item">Vodkas</a>
+                            <a style="text-align: center;" href="categorias-licores.php" class="list-group-item">Licores</a>
+                        </form>
+                    </div>
+                </div>
         </div>
-      </div>
-      </div>
-    <?php
-    }
-    ?>
+    </div>
+    <!-- /.container -->
 
-<div class="container">
+    <div class="container">
+
         <hr>
+
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -190,6 +186,16 @@
                 </div>
             </div>
         </footer>
+
     </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

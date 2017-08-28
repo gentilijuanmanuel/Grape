@@ -29,6 +29,8 @@
     <![endif]-->
 
     <link href="css/style.css" media="screen" rel="StyleSheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|EB+Garamond" rel="stylesheet">
   </head>
   <body>
     <!-- Navigation -->
@@ -42,7 +44,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">Grape</a>
+        <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Grape</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,18 +52,25 @@
       <?php
           if(isset($_SESSION['nombre_usuario'])) {
               echo '<ul class="nav navbar-nav">';
-              echo '<li class="active"><a href="#">'.$_SESSION['nombre_usuario'].'<span class="sr-only">(current)</span></a></li>';
+              echo '<li class="active"><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$_SESSION['nombre_usuario'].'<span class="sr-only">(current)</span></a></li>';
               echo '</ul>';
           }
           else {
               echo '<ul class="nav navbar-nav">';
-              echo '<li class="active"><a href="log-in.php">Entrar <span class="sr-only">(current)</span></a></li>';
+              echo '<li class="active"><a href="log-in.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Entrar<span class="sr-only">(current)</span></a></li>';
               echo '</ul>';
               echo '<ul class="nav navbar-nav">';
-              echo '<li class="active"><a href="registrarse.php">Registrarse <span class="sr-only">(current)</span></a></li>';
+              echo '<li class="active"><a href="registrarse.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registrarse<span class="sr-only">(current)</span></a></li>';
               echo '</ul>';
           }
       ?>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" onClick="window.open('formulario.html', 'Contacto', 'resizable, height=500, width=500'); return false;"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Contáctenos</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="categorias.php"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Categorías</a></li>
+        </ul>
+
         <form class="navbar-form navbar-right" action="resultado-busqueda.php" method="post">
           <div class="form-group">
             <input type="text" class="form-control" title="Buscar" name="busqueda" placeholder="Buscar whiskies, vinos...">
@@ -69,15 +78,22 @@
           <button type="submit" class="btn btn-default">Buscar</button>
         </form>
 
-        <?php
-            if(isset($_SESSION['nombre_usuario'])) {
-                ?>
-                    <form action="cerrar-sesion.php" class="navbar-form navbar-right" method="post">
-                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-                    </form>
-                <?php
-            }
-        ?>
+      <?php
+          if(isset($_SESSION['nombre_usuario'])) {
+              ?>
+                  <form action="cerrar-sesion.php" class="navbar-form navbar-right" method="post">
+                      <button type="submit" class="btn btn-default">Cerrar sesión</button>
+                  </form>
+              <?php
+              if($_SESSION['tipo_usuario'] == 1) {
+                  ?>
+                      <ul class="nav navbar-nav">
+                          <li class="active"><a href="listado-productos.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
+                      </ul>
+                  <?php
+              }
+          }
+      ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
