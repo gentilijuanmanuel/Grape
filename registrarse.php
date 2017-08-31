@@ -108,11 +108,11 @@
                             <br>
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" title="Sólo letras y/o números" name="nombre" placeholder="Johnnie" required pattern="[A-Za-z0-9]+">
+                                <input type="text" class="form-control" title="Sólo letras" name="nombre" placeholder="Johnnie" required pattern="[(A-Za-z)| ]+">
                             </div>
                             <div class="form-group">
                                 <label for="apellido">Apellido:</label>
-                                <input type="text" class="form-control" title="Sólo letras y/o números" name="apellido" placeholder="Walker" required pattern="[A-Za-z0-9]+">
+                                <input type="text" class="form-control" title="Sólo letras" name="apellido" placeholder="Walker" required pattern="[(A-Za-z)| ]+">
                             </div>
                             <div class="form-group">
                                 <label for="mail">E-mail</label>

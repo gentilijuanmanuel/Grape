@@ -123,11 +123,11 @@
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="" required pattern="[A-Za-z]+">
+              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="" required pattern="[(A-Za-z0-9)| ]+">
             </div>
             <div class="form-group">
               <label for="apellido">Apellido</label>
-              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="" required pattern="[A-Za-z]+">
+              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="" required pattern="[(A-Za-z0-9)| ]+">
             </div>
             <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="">
             <div class="form-group">

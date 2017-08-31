@@ -33,13 +33,13 @@
 </head>
   <body>
     <?php
-    include("conexion.inc");
-    $vQuery = "select * from tipos_bebidas";
-    $sql_tipos_bebida = mysqli_query($link, $vQuery);
+      include("conexion.inc");
+      $vQuery = "select * from tipos_bebidas";
+      $sql_tipos_bebida = mysqli_query($link, $vQuery);
     ?>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container-fluid">
+      <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -99,8 +99,8 @@
           }
       ?>
       </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      </div><!-- /.container-fluid -->
+    </nav>
 
 
   <?php
@@ -115,7 +115,7 @@
           <form class="" action="alta-producto.php" method="post" name="submit" >
             <div class="form-group">
               <label for="nombre">Nombre bebida</label>
-              <input type="text" name="nombre" title="Sólo letras y/o números" class="form-control" required pattern="[A-Za-z0-9]+">
+              <input type="text" name="nombre" title="Sólo letras y/o números" class="form-control" required pattern="[(A-Za-z0-9)| ]+">
             </div>
             <div class="form-group">
               <label for="tipo_bebida">Tipo de bebida</label>
@@ -135,16 +135,16 @@
 
             <div class="form-group">
               <label for="descripcion">Descripción</label>
-              <input type="text" title="Sólo letras y/o números" name="descripcion" class="form-control" minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+">
+              <input type="text" title="Sólo letras y/o números" name="descripcion" class="form-control" minlength="5" maxlength="40" required pattern="[(A-Za-z0-9)| |.|,|;]+">
             </div>
 
             <div class="form-group">
               <label for="marca">Marca</label>
-              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[A-Za-z0-9]+">
+              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[(A-Za-z0-9)| ]+">
             </div>
             <div class="form-group">
               <label for="detalle">Detalle</label>
-              <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="" required pattern="[0-9]+(.|,)[0-9]+"></textarea>
+              <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
             </div>
             <a href="#" onClick="window.open('Cargar-imagen.html', 'ImaGen', 'resizable, height=300, width=500'); return false;">Cargar Imagen</a>
             <br><br>

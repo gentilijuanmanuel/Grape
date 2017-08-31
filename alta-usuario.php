@@ -124,7 +124,7 @@
                             $alta = "insert into usuarios(nombre, apellido, mail, nombre_usuario, contrasenia, tipo_usuario) values ('$nombre', '$apellido','$mail','$usuario','$password', 0)";
                             $resultado = mysqli_query($link, $alta) or die (mysqli_error($link));
                             if($resultado) {
-                                echo "<p>El usuario ha sido agregado correctamente.</p>";
+                                echo "<div class='alert alert-success' role='alert'>El usuario ha sido agregado correctamente.</div>";
                                 $_SESSION['nombre_usuario'] = $usuario;
                                 $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
                                 $_SESSION['tipo_usuario'] = 0;

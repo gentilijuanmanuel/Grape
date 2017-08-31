@@ -125,11 +125,11 @@
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[A-Za-z]+">
+              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[(A-Za-z)| ]+">
             </div>
             <div class="form-group">
               <label for="apellido">Apellido</label>
-              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[A-Za-z]+">
+              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| ]+">
             </div>
             <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="<?php echo $Usuario['id_usuario']; ?>">
             <div class="form-group">
@@ -172,12 +172,12 @@
               </div>
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" title="Sólo letras" disabled="true" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[A-Za-z]+">
+                <input type="text" title="Sólo letras" disabled="true" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[(A-Za-z)| ]+">
               </div>
 
               <div class="form-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" disabled="true" name="apellido" title="Sólo letras" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[A-Za-z]+">
+                <input type="text" disabled="true" name="apellido" title="Sólo letras" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| ]+">
               </div>
               <input type="text" hidden="true" title="Eliminar usuario" name="id_usuario" value="<?php echo $Usuario['id_usuario']; ?>">
               <div class="form-group">

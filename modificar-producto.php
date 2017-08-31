@@ -112,7 +112,7 @@
 
           $resultado = mysqli_query($link, $vModificacion) or die(mysqli_error($link));
           if($resultado) {
-            echo "<div class='alert alert-success' role='alert'>El producto ha sido eliminado correctamente.</div>";
+            echo "<div class='alert alert-success' role='alert'>El producto ha sido modificado correctamente.</div>";
           }
 
           mysqli_close($link);
