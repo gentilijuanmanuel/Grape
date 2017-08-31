@@ -115,11 +115,11 @@
           <form class="" action="alta-producto.php" method="post" name="submit" >
             <div class="form-group">
               <label for="nombre">Nombre bebida</label>
-              <input type="text" name="nombre" title="Crear" class="form-control">
+              <input type="text" name="nombre" title="Sólo letras y/o números" class="form-control" required pattern="[A-Za-z0-9]+">
             </div>
             <div class="form-group">
               <label for="tipo_bebida">Tipo de bebida</label>
-              <select class="form-control" title="Crear" name="tipo_bebida">
+              <select class="form-control" title="Elija alguno de los tipos de bebidas" name="tipo_bebida">
                 <?php
                 while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
                   echo $row['nombre'];
@@ -130,21 +130,21 @@
             </div>
             <div class="form-group">
               <label for="precio">Precio</label>
-              <input type="text" title="Crear" name="precio" class="form-control">
+              <input type="text" title="Sólo números" name="precio" class="form-control" required pattern="[0-9]+(.|,)[0-9]+">
             </div>
 
             <div class="form-group">
-              <label for="descripcion">Descripcion</label>
-              <input type="text" title="Crear" name="descripcion" class="form-control">
+              <label for="descripcion">Descripción</label>
+              <input type="text" title="Sólo letras y/o números" name="descripcion" class="form-control" minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+">
             </div>
 
             <div class="form-group">
               <label for="marca">Marca</label>
-              <input type="text" title="Crear" name="marca" class="form-control">
+              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[0-9]+(.|,)[0-9]+">
             </div>
             <div class="form-group">
               <label for="detalle">Detalle</label>
-              <textarea type="text" name="detalle" title="Modificar producto" class="form-control" value=""></textarea>
+              <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="" required pattern="[0-9]+(.|,)[0-9]+"></textarea>
             </div>
             <a href="#" onClick="window.open('Cargar-imagen.html', 'ImaGen', 'resizable, height=300, width=500'); return false;">Cargar Imagen</a>
             <br><br>

@@ -109,11 +109,11 @@
                     <br>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nombre de usuario:</label>
-                      <input type="text" class="form-control" name="nombre-usuario" placeholder="johnw" required>
+                      <input type="text" title="Sólo letras y/o números" class="form-control" name="nombre-usuario" placeholder="johnw" required pattern="[A-Za-z0-9]+">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Cotraseña:</label>
-                      <input type="password" class="form-control" name="password" placeholder="ejemplo" required>
+                      <input type="password" title="Sólo letras y/o números" class="form-control" name="password" placeholder="ejemplo" required pattern="[A-Za-z0-9]+">
                     </div>
                     <button type="submit" class="btn btn-primary" name="btnIngresar">Ingresar</button>
                     <a class="pull-right" href="registrarse.php">Crear una cuenta nueva</a>

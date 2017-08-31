@@ -108,23 +108,23 @@
                             <br>
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" title="Registrarse" name="nombre" placeholder="Johnnie" required>
+                                <input type="text" class="form-control" title="Sólo letras y/o números" name="nombre" placeholder="Johnnie" required pattern="[A-Za-z0-9]+">
                             </div>
                             <div class="form-group">
                                 <label for="apellido">Apellido:</label>
-                                <input type="text" class="form-control" title="Registrarse" name="apellido" placeholder="Walker" required>
+                                <input type="text" class="form-control" title="Sólo letras y/o números" name="apellido" placeholder="Walker" required pattern="[A-Za-z0-9]+">
                             </div>
                             <div class="form-group">
                                 <label for="mail">E-mail</label>
-                                <input type="email" class="form-control" title="Registrarse" name="mail" placeholder="ejemplo@ejemplo.com" required>
+                                <input type="email" class="form-control" title="Formato de e-mail" name="mail" placeholder="ejemplo@ejemplo.com" required>
                             </div>
                             <div class="form-group">
                                 <label for="nombre-usuario">Nombre de usuario:</label>
-                                <input type="text" class="form-control" title="Registrarse" name="nombre-usuario" placeholder="johnw" required>
+                                <input type="text" class="form-control" title="Sólo letras y/o números" name="nombre-usuario" placeholder="johnw" required pattern="[A-Za-z0-9]+">
                             </div>
                             <div class="form-group">
                                 <label for="password">Cotraseña:</label>
-                                <input type="password" class="form-control" title="Registrarse" name="password" placeholder="ejemplo" required>
+                                <input type="password" class="form-control" title="Sólo letras y/o números" name="password" placeholder="ejemplo" required pattern="[A-Za-z0-9]+">
                             </div>
                             <button type="submit" class="btn btn-primary" name="btnIngresar">Registrarse</button>
                             <a class="pull-right" href="index.php">Volver a la página principal</a>
