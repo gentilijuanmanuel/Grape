@@ -3,15 +3,13 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-
-    <meta charset="utf-8">
+  <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grape - El mejor sitio de e-commerce para bebidas</title>
+    <title>Eliminar Producto</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,14 +27,8 @@
     <link href="css/style.css" media="screen" rel="StyleSheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|EB+Garamond" rel="stylesheet">
-
-</head>
+  </head>
   <body>
-    <?php
-    include("conexion.inc");
-    $vQuery = "select * from bebidas";
-    $vResult = mysqli_query($link, $vQuery);
-    ?>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -102,85 +94,29 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <?php
-    if(isset($_SESSION['tipo_usuario'])) {
-      $tipo_usuario = $_SESSION['tipo_usuario'];
-      if($tipo_usuario == 1) {
-  ?>
-        <br>
-        <br>
-        <div class="container">
-          <h1>Tabla de bebidas</h1>
-          <table class="table table-hover table-striped">
-            <tr>
-              <th>ID bebida</th>
-              <th>Nombre</th>
-              <th>Descripcion</th>
-              <th>Precio</th>
-              <th>Marca</th>
-              <th>Detalle</th>
-            </tr>
-            <?php
-            while($fila = mysqli_fetch_array($vResult))
-            {
-              echo "<tr>";
-                echo "<td>".$fila['id_bebida']."</td>";
-                echo "<td>".$fila['nombre']."</td>";
-                echo "<td>".$fila['descripcion']."</td>";
-                echo "<td>".$fila['precio']."</td>";
-                echo "<td>".$fila['marca']."</td>";
-                echo "<td>".$fila['detalle']."</td>";
-                echo "</tr>";
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-4 col-md-offset-4">
+          <h1>Eliminar Usuario</h1>
+          <?php
+            include("conexion.inc");
+
+            $ID_Usuario = $_POST['id_usuario'];
+            $vEliminar = "delete from usuarios where id_usuario = '$ID_Usuario'";
+
+            $resultado = mysqli_query($link, $vEliminar) or die(mysqli_error($link));
+            if($resultado) {
+              echo "<div class='alert alert-success' role='alert'>El usuario ha sido eliminado correctamente.</div>";
             }
 
             mysqli_close($link);
             ?>
-
-          </table>
-          <br>
-          <br>
-          <div class="form-inline">
-
-          <form class="form-group" action="form-alta-producto.php" method="post">
-            <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
-          </form>
-          <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
-            <label for="ID">ID: </label>
-            <input title="ID" type="number" name="ID">
-            <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
-            <button type="submit" title="Eliminar" name="Elimminar" class="btn btn-danger">Eliminar</button>
-          </form>
-      <?php
-        } else {
-          ?>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
-                  <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
-                  <a href="index.php">Volver a la página principal</a>
-                </div>
-              </div>
-            </div>
-
-          <?php
-      }
-    } else {
-      ?>
-      <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
-          <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
-          <a href="index.php">Volver a la página principal</a>
+            <a href="listado-usuarios.php">Volver al listado</a>
         </div>
       </div>
-      </div>
-    <?php
-    }
-    ?>
+    </div>
 
-<div class="container">
+    <div class="container">
         <hr>
         <!-- Footer -->
         <footer>
@@ -191,5 +127,6 @@
             </div>
         </footer>
     </div>
-</body>
+    <!-- /.container -->
+  </body>
 </html>

@@ -34,7 +34,7 @@
   <body>
     <?php
     include("conexion.inc");
-    $vQuery = "select * from bebidas";
+    $vQuery = "select * from usuarios";
     $vResult = mysqli_query($link, $vQuery);
     ?>
     <!-- Navigation -->
@@ -110,26 +110,33 @@
         <br>
         <br>
         <div class="container">
-          <h1>Tabla de bebidas</h1>
+          <h1>Tabla de usuarios</h1>
           <table class="table table-hover table-striped">
             <tr>
-              <th>ID bebida</th>
+              <th>ID Usuario</th>
+              <th>Nombre de Usuario</th>
+              <th>Contraseña</th>
               <th>Nombre</th>
-              <th>Descripcion</th>
-              <th>Precio</th>
-              <th>Marca</th>
-              <th>Detalle</th>
+              <th>Apellido</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Tipo de usuario</th>
             </tr>
             <?php
             while($fila = mysqli_fetch_array($vResult))
             {
               echo "<tr>";
-                echo "<td>".$fila['id_bebida']."</td>";
+                echo "<td>".$fila['id_usuario']."</td>";
+                echo "<td>".$fila['nombre_usuario']."</td>";
+                echo "<td>".$fila['contrasenia']."</td>";
                 echo "<td>".$fila['nombre']."</td>";
-                echo "<td>".$fila['descripcion']."</td>";
-                echo "<td>".$fila['precio']."</td>";
-                echo "<td>".$fila['marca']."</td>";
-                echo "<td>".$fila['detalle']."</td>";
+                echo "<td>".$fila['apellido']."</td>";
+                echo "<td>".$fila['fecha_nac']."</td>";
+                if($fila['tipo_usuario'] == '1'){
+                  echo "<td>Administrador</td>";
+                }
+                else{
+                  echo "<td>Común</td>";
+                }
                 echo "</tr>";
             }
 
@@ -141,14 +148,14 @@
           <br>
           <div class="form-inline">
 
-          <form class="form-group" action="form-alta-producto.php" method="post">
+          <form class="form-group" action="form-alta-usuario.php" method="post">
             <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
           </form>
-          <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
+          <form class="form-group" action="form-modificacion-baja-usuario.php" method="post">
             <label for="ID">ID: </label>
             <input title="ID" type="number" name="ID">
             <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
-            <button type="submit" title="Eliminar" name="Elimminar" class="btn btn-danger">Eliminar</button>
+            <button type="submit" title="Modificar" name="Elimminar" class="btn btn-danger">Eliminar</button>
           </form>
       <?php
         } else {

@@ -34,8 +34,8 @@
   <body>
     <?php
     include("conexion.inc");
-    $vQuery = "select * from bebidas";
-    $vResult = mysqli_query($link, $vQuery);
+    $vQuery = "select * from tipos_bebidas";
+    $sql_tipos_bebida = mysqli_query($link, $vQuery);
     ?>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -102,55 +102,52 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+
   <?php
     if(isset($_SESSION['tipo_usuario'])) {
       $tipo_usuario = $_SESSION['tipo_usuario'];
       if($tipo_usuario == 1) {
   ?>
-        <br>
-        <br>
-        <div class="container">
-          <h1>Tabla de bebidas</h1>
-          <table class="table table-hover table-striped">
-            <tr>
-              <th>ID bebida</th>
-              <th>Nombre</th>
-              <th>Descripcion</th>
-              <th>Precio</th>
-              <th>Marca</th>
-              <th>Detalle</th>
-            </tr>
-            <?php
-            while($fila = mysqli_fetch_array($vResult))
-            {
-              echo "<tr>";
-                echo "<td>".$fila['id_bebida']."</td>";
-                echo "<td>".$fila['nombre']."</td>";
-                echo "<td>".$fila['descripcion']."</td>";
-                echo "<td>".$fila['precio']."</td>";
-                echo "<td>".$fila['marca']."</td>";
-                echo "<td>".$fila['detalle']."</td>";
-                echo "</tr>";
-            }
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <form class="" action="alta-usuario-admin.php" method="post">
+            <div class="form-group">
+              <label for="nombre_usuario">Nombre usuario</label>
+              <input type="text" title="Modificar usuario" name="nombre_usuario" class="form-control" value="" required>
+            </div>
+            <div class="form-group">
+              <label for="contrasenia">Contraseña</label>
+              <input type="password" title="Modificar usuario" name="contrasenia" class="form-control" value="" required>
+            </div>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" title="Modificar usuario" name="nombre" class="form-control" value="" required>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" title="Modificar usuario" name="apellido" class="form-control" value="" required>
+            </div>
+            <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="">
+            <div class="form-group">
+              <label for="fecha_nac">Fecha de nacimiento</label>
+              <input type="date" name="fecha_nac" title="Modificar usuario" class="form-control" value="" required>
+            </div>
 
-            mysqli_close($link);
-            ?>
-
-          </table>
-          <br>
-          <br>
-          <div class="form-inline">
-
-          <form class="form-group" action="form-alta-producto.php" method="post">
-            <button type="submit" title="Nuevo" class="btn btn-primary">Nuevo</button>
+            <div class="form-group">
+              <label for="tipo_usuario">Tipo de usuario</label>
+              <select class="form-control" name="tipo_usuario">
+                <option value=\"1\">Administrador</option>"
+                <option value=\"0\" selected>Comun</option>"
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Usuario</button>
+            | <a href="listado-usuarios.php">Volver<a>
           </form>
-          <form class="form-group" action="form-modificacion-baja-producto.php" method="post">
-            <label for="ID">ID: </label>
-            <input title="ID" type="number" name="ID">
-            <button type="submit" title="Modificar" name="Modificar" class="btn btn-success">Modificar</button>
-            <button type="submit" title="Eliminar" name="Elimminar" class="btn btn-danger">Eliminar</button>
-          </form>
-      <?php
+        </div>
+      </div>
+    </div>
+    <?php
         } else {
           ?>
             <div class="container">
@@ -179,8 +176,7 @@
     <?php
     }
     ?>
-
-<div class="container">
+    <div class="container">
         <hr>
         <!-- Footer -->
         <footer>
@@ -191,5 +187,5 @@
             </div>
         </footer>
     </div>
-</body>
+  </body>
 </html>
