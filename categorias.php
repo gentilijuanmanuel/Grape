@@ -2,14 +2,14 @@
     session_start();
     if(isset($_SESSION['ultimoAcceso']) && isset($_SESSION['nombre_usuario'])) {
         $fechaGuardada = $_SESSION['ultimoAcceso'];
-        $ahora = date("Y-n-j H:i:s"); 
+        $ahora = date("Y-n-j H:i:s");
         $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
-    
-        if($tiempo_transcurrido >= 60) { 
+
+        if($tiempo_transcurrido >= 60) {
             session_destroy();
-        } else { 
-            $_SESSION['ultimoAcceso'] = $ahora; 
-        } 
+        } else {
+            $_SESSION['ultimoAcceso'] = $ahora;
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -100,7 +100,7 @@
               if($_SESSION['tipo_usuario'] == 1) {
                   ?>
                       <ul class="nav navbar-nav">
-                          <li class="active"><a href="listado-productos.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
+                          <li class="active"><a href="panel-control.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
                       </ul>
                   <?php
               }

@@ -2,14 +2,14 @@
     session_start();
     if(isset($_SESSION['ultimoAcceso']) && isset($_SESSION['nombre_usuario'])) {
         $fechaGuardada = $_SESSION['ultimoAcceso'];
-        $ahora = date("Y-n-j H:i:s"); 
+        $ahora = date("Y-n-j H:i:s");
         $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
-    
-        if($tiempo_transcurrido >= 60) { 
+
+        if($tiempo_transcurrido >= 60) {
             session_destroy();
-        } else { 
-            $_SESSION['ultimoAcceso'] = $ahora; 
-        } 
+        } else {
+            $_SESSION['ultimoAcceso'] = $ahora;
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -100,7 +100,7 @@
                 if($_SESSION['tipo_usuario'] == 1) {
                     ?>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="listado-productos.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="panel-control.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
                         </ul>
                     <?php
                 }
@@ -169,7 +169,7 @@
                                     <form action="detalle-producto.php" method="post" name="form<?php echo 1; ?>">
                                         <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 1; ?>">
                                         <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 1; ?>'].submit();"><?php echo 'JW Blue Label' ?></a>
-                                    </form> 
+                                    </form>
                                     </h4>
                                     <p>Whisky Johnnie Walker Blue Label. 15 años de añejamiento.</p>
                                 </div>
@@ -194,7 +194,7 @@
                                     <form action="detalle-producto.php" method="post" name="form<?php echo 3; ?>">
                                         <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 3; ?>">
                                         <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 3; ?>'].submit();"><?php echo 'Ruttini Cavernet' ?></a>
-                                    </form> 
+                                    </form>
                                     </h4>
                                     <p>Ruttini Cavernet Sauvignon Cosecha 2012.</p>
                                 </div>
@@ -219,7 +219,7 @@
                                     <form action="detalle-producto.php" method="post" name="form<?php echo 4; ?>">
                                         <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 4; ?>">
                                         <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 4; ?>'].submit();"><?php echo 'Dom Perignon Rosé' ?></a>
-                                    </form> 
+                                    </form>
                                     </h4>
                                     <p> Shampagne Dom Perignon Rosé</p>
                                 </div>
@@ -244,7 +244,7 @@
                                     <form action="detalle-producto.php" method="post" name="form<?php echo 5; ?>">
                                         <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 5; ?>">
                                         <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 5; ?>'].submit();"><?php echo 'Baron B' ?></a>
-                                    </form> 
+                                    </form>
                                     </h4>
                                     <p>Shampagne Baron B Extra Brut.</p>
                                 </div>
@@ -269,7 +269,7 @@
                                     <form action="detalle-producto.php" method="post" name="form<?php echo 6; ?>">
                                         <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 6; ?>">
                                         <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 6; ?>'].submit();"><?php echo 'Absolut Pear' ?></a>
-                                    </form> 
+                                    </form>
                                     </h4>
                                     <p>Vodka Absolut sabor pera.</p>
                                 </div>
@@ -294,7 +294,7 @@
                                     <form action="detalle-producto.php" method="post" name="form<?php echo 2; ?>">
                                         <input type="text" hidden="true" name="ID" title="ID" value="<?php echo 2; ?>">
                                         <a href="javascript:viod(0)" onclick="javascript:document.forms['form<?php echo 2; ?>'].submit();"><?php echo 'JW Gold Label' ?></a>
-                                    </form> 
+                                    </form>
                                     </h4>
                                     <p>Whisky Johnnie Walker Gold Label. 20 años de añejamiento.</p>
                                 </div>
@@ -328,7 +328,7 @@
                     </blockquote>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
     <!-- Footer -->

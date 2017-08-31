@@ -3,13 +3,15 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
+
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Eliminar Producto</title>
+    <title>Grape - El mejor sitio de e-commerce para bebidas</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,8 +29,14 @@
     <link href="css/style.css" media="screen" rel="StyleSheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|EB+Garamond" rel="stylesheet">
-  </head>
+
+</head>
   <body>
+    <?php
+    include("conexion.inc");
+    $vQuery = "select * from tipos_bebidas";
+    $sql_tipos_bebida = mysqli_query($link, $vQuery);
+    ?>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -94,28 +102,63 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+
+  <?php
+    if(isset($_SESSION['tipo_usuario'])) {
+      $tipo_usuario = $_SESSION['tipo_usuario'];
+      if($tipo_usuario == 1) {
+  ?>
     <div class="container">
       <div class="row">
-        <div class="col col-md-4 col-md-offset-4">
-          <h1>Eliminar producto</h1>
-          <?php
-            include("conexion.inc");
+        <div class="col-md-12">
+          <h1>Bienvenido de nuevo!</h1>
 
-            $ID_Bebida = $_POST['id_bebida'];
-            $vEliminar = "delete from bebidas where id_bebida = '$ID_Bebida'";
+          <div class="panel panel-primary">
 
-            $resultado = mysqli_query($link, $vEliminar) or die(mysqli_error($link));
-            if($resultado) {
-              echo "<div class='alert alert-success' role='alert'>El producto ha sido eliminado correctamente.</div>";
-            }
+              <div class="panel-heading">Opciones</div>
+              <div class="panel-body">
+                  <p>Elija una opcion:</p>
+              </div>
 
-            mysqli_close($link);
-            ?>
-            <a href="listado-productos.php">Volver al listado</a>
+              <div class="list-group">
+                  <form action="filtro-categoria.php" method="post">
+                      <a style="text-align: center;" href="listado-productos.php" class="list-group-item">Control de productos</a>
+                      <a style="text-align: center;" href="listado-usuarios.php" class="list-group-item">Control de usuarios</a>
+                  </form>
+              </div>
+          </div>
         </div>
       </div>
     </div>
+    <?php
+        } else {
+          ?>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+                  <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
+                  <a href="index.php">Volver a la página principal</a>
+                </div>
+              </div>
+            </div>
 
+          <?php
+      }
+    } else {
+      ?>
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+          <h2 style="color: red">No estás autorizado para ingresar a esta página.</h2>
+          <a href="index.php">Volver a la página principal</a>
+        </div>
+      </div>
+      </div>
+    <?php
+    }
+    ?>
     <div class="container">
         <hr>
         <!-- Footer -->
@@ -127,6 +170,5 @@
             </div>
         </footer>
     </div>
-    <!-- /.container -->
   </body>
 </html>
