@@ -36,7 +36,7 @@
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container-fluid">
+      <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -96,19 +96,19 @@
           }
       ?>
       </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <?php
-    if(isset($_SESSION['tipo_usuario'])) {
-      $tipo_usuario = $_SESSION['tipo_usuario'];
-      if($tipo_usuario == 1) {
-  ?>
-  <?php
-    include("conexion.inc");
-    $vQueryUsuario = "select * from usuarios where id_usuario = "."".$_POST["ID"]."";
-    $Usuario_seleccionado = mysqli_query($link, $vQueryUsuario);
-    $Usuario = mysqli_fetch_assoc($Usuario_seleccionado);
+      if(isset($_SESSION['tipo_usuario'])) {
+        $tipo_usuario = $_SESSION['tipo_usuario'];
+        if($tipo_usuario == 1) {
+    ?>
+    <?php
+      include("conexion.inc");
+      $vQueryUsuario = "select * from usuarios where id_usuario = "."".$_POST["ID"]."";
+      $Usuario_seleccionado = mysqli_query($link, $vQueryUsuario);
+      $Usuario = mysqli_fetch_assoc($Usuario_seleccionado);
     ?>
     <?php if(isset($_POST['Modificar'])){ ?>
     <div class="container">
@@ -117,24 +117,24 @@
           <form class="" action="modificar-usuario.php" method="post">
             <div class="form-group">
               <label for="nombre_usuario">Nombre usuario</label>
-              <input type="text" title="Modificar usuario" name="nombre_usuario" class="form-control" value="<?php echo $Usuario['nombre_usuario']; ?>" required>
+              <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" value="<?php echo $Usuario['nombre_usuario']; ?>" required pattern="[A-Za-z0-9]+">
             </div>
             <div class="form-group">
               <label for="contrasenia">Contraseña</label>
-              <input type="text" title="Modificar usuario" name="contrasenia" class="form-control" value="<?php echo $Usuario['contrasenia']; ?>" required>
+              <input type="text" title="Sólo letras y/o números" name="contrasenia" class="form-control" value="<?php echo $Usuario['contrasenia']; ?>" required pattern="[A-Za-z0-9]+">
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" title="Modificar usuario" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required>
+              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[A-Za-z]+">
             </div>
             <div class="form-group">
               <label for="apellido">Apellido</label>
-              <input type="text" title="Modificar usuario" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required>
+              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[A-Za-z]+">
             </div>
             <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="<?php echo $Usuario['id_usuario']; ?>">
             <div class="form-group">
               <label for="fecha_nac">Fecha de nacimiento</label>
-              <input type="date" name="fecha_nac" title="Modificar usuario" class="form-control" value="<?php echo $Usuario['fecha_nac']; ?>" required>
+              <input type="date" name="fecha_nac" title="AAAA.MM.DD" class="form-control" value="<?php echo $Usuario['fecha_nac']; ?>" required pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
             </div>
 
             <div class="form-group">
@@ -164,25 +164,25 @@
             <form class="" action="eliminar-usuario.php" method="post">
               <div class="form-group">
                 <label for="nombre_usuario">Nombre usuario</label>
-                <input type="text" title="Eliminar producto" name="nombre_usuario" class="form-control" disabled="true" value="<?php echo $Usuario['nombre_usuario']; ?>">
+                <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" disabled="true" value="<?php echo $Usuario['nombre_usuario']; ?>" required pattern="[A-Za-z0-9]+">
               </div>
               <div class="form-group">
                 <label for="contrasenia">Contraseña</label>
-                <input type="text" disabled="true" title="Eliminar producto" class="form-control" name="contrasenia" value="<?php echo $Usuario['contrasenia']; ?>">
+                <input type="text" disabled="true" title="Sólo letras y/o números" class="form-control" name="contrasenia" value="<?php echo $Usuario['contrasenia']; ?>" required pattern="[A-Za-z0-9]+">
               </div>
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" title="Eliminar producto" disabled="true" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>">
+                <input type="text" title="Sólo letras" disabled="true" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[A-Za-z]+">
               </div>
 
               <div class="form-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" disabled="true" name="apellido" title="Eliminar producto" class="form-control" value="<?php echo $Usuario['apellido']; ?>">
+                <input type="text" disabled="true" name="apellido" title="Sólo letras" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[A-Za-z]+">
               </div>
               <input type="text" hidden="true" title="Eliminar usuario" name="id_usuario" value="<?php echo $Usuario['id_usuario']; ?>">
               <div class="form-group">
                 <label for="fecha_nac">Fecha de nacimiento</label>
-                <input type="date" disabled="true" title="Eliminar usuario" name="fecha_nac" class="form-control" value="<?php echo $Usuario['fecha_nac']; ?>">
+                <input type="date" disabled="true" title="AAAA.MM.DD" name="fecha_nac" class="form-control" value="<?php echo $Usuario['fecha_nac']; ?>" required pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
               </div>
               <div class="form-group">
                 <label for="detalle">Tipo de usuario</label>

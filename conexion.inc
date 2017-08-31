@@ -5,6 +5,6 @@ mysqli_select_db($link, "id2616608_grape");*/
     $hostname = "localhost";
     $username = "root";
     $nameBD = "grape";
-    $link = mysqli_connect("localhost", "root", "root") or die("Problemas con la conexion a la base de datos.");
+    $link = mysqli_connect("localhost", "root") or die("Problemas con la conexion a la base de datos.");
     $boolean = mysqli_select_db($link, $nameBD);
 ?>

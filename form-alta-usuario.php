@@ -112,31 +112,32 @@
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
           <form class="" action="alta-usuario-admin.php" method="post">
+            <h1>Alta de usuario</h1>
             <div class="form-group">
               <label for="nombre_usuario">Nombre usuario</label>
-              <input type="text" title="Modificar usuario" name="nombre_usuario" class="form-control" value="" required>
+              <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" value="" required pattern="[A-Za-z0-9]+">
             </div>
             <div class="form-group">
               <label for="contrasenia">Contraseña</label>
-              <input type="password" title="Modificar usuario" name="contrasenia" class="form-control" value="" required>
+              <input type="password" title="Sólo letras y/o números" name="contrasenia" class="form-control" value="" required pattern="[A-Za-z0-9]+">
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" title="Modificar usuario" name="nombre" class="form-control" value="" required>
+              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="" required pattern="[A-Za-z]+">
             </div>
             <div class="form-group">
               <label for="apellido">Apellido</label>
-              <input type="text" title="Modificar usuario" name="apellido" class="form-control" value="" required>
+              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="" required pattern="[A-Za-z]+">
             </div>
             <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="">
             <div class="form-group">
               <label for="fecha_nac">Fecha de nacimiento</label>
-              <input type="date" name="fecha_nac" title="Modificar usuario" class="form-control" value="" required>
+              <input type="date" name="fecha_nac" title="AAAA.MM.DD" class="form-control" value="" required pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
             </div>
 
             <div class="form-group">
               <label for="tipo_usuario">Tipo de usuario</label>
-              <select class="form-control" name="tipo_usuario">
+              <select class="form-control" name="tipo_usuario" required>
                 <option value=\"1\">Administrador</option>"
                 <option value=\"0\" selected>Comun</option>"
               </select>
