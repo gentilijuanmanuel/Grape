@@ -88,7 +88,7 @@
               if($_SESSION['tipo_usuario'] == 1) {
                   ?>
                       <ul class="nav navbar-nav">
-                          <li class="active"><a href="listado-productos.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
+                          <li class="active"><a href="panel-control.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control de administrador<span class="sr-only">(current)</span></a></li>
                       </ul>
                   <?php
               }
