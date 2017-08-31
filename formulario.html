@@ -1,11 +1,31 @@
-<body>
-<form action="enviar.php" method="post">
-	<fieldset>
-	<p><label> Nombre <input type="text" name="nombre" size="25" /> </label></p>
-	<p><label> Email <input type="text" name="email" size="25" /> </label></p>
-	Comentario
-	<p><label><textarea name="texto" cols="32" rows="6"></textarea></label></p>
-	<input type="submit" value="Enviar"/>
-	</fieldset>
-</form>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+
+		<title>Contacto</title>
+	</head>
+	<body>
+		<h1>  Contactenos: </h1>
+		<div class="col-xs-10 col-xs-offset-1">
+		<form class="" action="enviar.php" method="post">
+			<fieldset>
+			<div class="form-group"><p><label> Nombre</label> <input type="text" class="form-control" name="nombre" size="25" /> </p></div>
+			<div class="form-group"><p><label> Email</label> <input class="form-control" type="text" name="email" size="25" /> </p></div>
+			<div class="form-group"><p><label>Comentario</label><textarea class="form-control" name="texto" cols="32" rows="6"></textarea></p>
+			<input class="btn btn-primary" type="submit" value="Enviar"/></div>
+			</fieldset>
+		</form>
+	</div>
+	</body>
+</html>
