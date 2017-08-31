@@ -140,7 +140,7 @@
 
             <div class="form-group">
               <label for="marca">Marca</label>
-              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[0-9]+(.|,)[0-9]+">
+              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[A-Za-z0-9]+">
             </div>
             <div class="form-group">
               <label for="detalle">Detalle</label>
