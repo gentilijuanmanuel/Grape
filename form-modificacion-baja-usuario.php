@@ -108,6 +108,8 @@
       include("conexion.inc");
       $vQueryUsuario = "select * from usuarios where id_usuario = "."".$_POST["ID"]."";
       $Usuario_seleccionado = mysqli_query($link, $vQueryUsuario);
+      $totalFilas = mysqli_num_rows($Usuario_seleccionado);
+      if($totalFilas == 1){
       $Usuario = mysqli_fetch_assoc($Usuario_seleccionado);
     ?>
     <?php if(isset($_POST['Modificar'])){ ?>
@@ -203,6 +205,20 @@
 
     <?php
       }
+    } else { ?>
+
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+          <h2 style="color: red">El id ingresado no es correcto.</h2>
+          <a href="listado-usuarios.php">Volver al listado</a>
+        </div>
+      </div>
+      </div>
+
+
+    <?php } ?>
     ?>
     <?php
       }

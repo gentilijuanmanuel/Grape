@@ -110,114 +110,135 @@
 
     $vQueryProducto = "select * from bebidas where id_bebida = "."'".$_POST["ID"]."'";
     $Producto_seleccionado = mysqli_query($link, $vQueryProducto);
-    $Producto = mysqli_fetch_assoc($Producto_seleccionado);
-    ?>
-    <?php if(isset($_POST['Modificar'])){ ?>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <form class="" action="modificar-producto.php" method="post">
-            <div class="form-group">
-              <label for="nombre">Nombre bebida</label>
-              <input type="text" title="Modificar producto" name="nombre" class="form-control" value="<?php echo $Producto['nombre']; ?>" required pattern="[A-Za-z0-9]+">
-            </div>
-            <div class="form-group">
-              <label for="tipo_bebida">Tipo de bebida</label>
-              <select class="form-control" title="Modificar producto" name="tipo_bebida">
-                <?php
-                while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
-                  if($Producto['id_tipo_bebida'] == $row['id_tipo_bebida'])
-                  {
-                    echo $row['nombre'];
-                    echo"<option value=\"".$row['id_tipo_bebida']."\" selected>".$row['nombre']."</option>";
-                  }
-                  else{
-                    echo $row['nombre'];
-                    echo"<option value=\"".$row['id_tipo_bebida']."\">".$row['nombre']."</option>";
-                  }
-                }
-                ?>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="precio">Precio</label>
-              <input type="text" title="Sólo números" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>" required pattern="[0-9]+(.|,)[0-9]+">
-            </div>
-            <input type="text" hidden="true" title="Elija un tipo de bebidas" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
-            <div class="form-group">
-              <label for="descripcion">Descripcion</label>
-              <input type="text" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+">
-            </div>
-            <div class="form-group">
-              <label for="marca">Marca</label>
-              <input type="text" name="marca" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| ]+">
-            </div>
-            <div class="form-group">
-              <label for="detalle">Detalle</label>
-              <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Modificar producto</button>
-            | <a href="listado-productos.php">Volver<a>
-          </form>
-        </div>
-      </div>
-    </div>
-    <?php }
-    else{ ?>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-md-offset-4">
-            <form class="" action="eliminar-producto.php" method="post">
-              <div class="form-group">
-                <label for="nombre">Nombre bebida</label>
-                <input type="text" title="Sólo letras y/o números" name="nombre" class="form-control" disabled="true" value="<?php echo $Producto['nombre']; ?>" required pattern="[(A-Za-z0-9)| ]+">
-              </div>
-              <div class="form-group">
-                <label for="tipo_bebida">Tipo de bebida</label>
-                <select class="form-control" title="Elija un tipo de bebida" disabled="true" name="tipo_bebida">
-                  <?php
-                  while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
-                    if($Producto['id_tipo_bebida'] == $row['id_tipo_bebida'])
-                    {
-                      echo $row['nombre'];
-                      echo"<option value=\"".$row['id_tipo_bebida']."\" selected>".$row['nombre']."</option>";
+    $totalFilas = mysqli_num_rows($Producto_seleccionado);
+    if($totalFilas == 1)
+    {
+        $Producto = mysqli_fetch_assoc($Producto_seleccionado);
+        ?>
+        <?php if(isset($_POST['Modificar'])){ ?>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <form class="" action="modificar-producto.php" method="post">
+                <div class="form-group">
+                  <label for="nombre">Nombre bebida</label>
+                  <input type="text" title="Modificar producto" name="nombre" class="form-control" value="<?php echo $Producto['nombre']; ?>" required pattern="[A-Za-z0-9]+">
+                </div>
+                <div class="form-group">
+                  <label for="tipo_bebida">Tipo de bebida</label>
+                  <select class="form-control" title="Modificar producto" name="tipo_bebida">
+                    <?php
+                    while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
+                      if($Producto['id_tipo_bebida'] == $row['id_tipo_bebida'])
+                      {
+                        echo $row['nombre'];
+                        echo"<option value=\"".$row['id_tipo_bebida']."\" selected>".$row['nombre']."</option>";
+                      }
+                      else{
+                        echo $row['nombre'];
+                        echo"<option value=\"".$row['id_tipo_bebida']."\">".$row['nombre']."</option>";
+                      }
                     }
-                    else{
-                      echo $row['nombre'];
-                      echo"<option value=\"".$row['id_tipo_bebida']."\">".$row['nombre']."</option>";
-                    }
-                  }
-                  ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="precio">Precio</label>
-                <input type="text" title="Sólo números" disabled="true" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>" required pattern="[0-9]+(.|,)[0-9]+">
-              </div>
-              <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <input type="text" disabled="true" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+">
-              </div>
-              <div class="form-group">
-                <label for="marca">Marca</label>
-                <input type="text" disabled="true" title="Sólo letras y/o números" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| ]+">
-              </div>
-              <div class="form-group">
-                <label for="detalle">Detalle</label>
-                <textarea type="text" name="detalle" disabled="true" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
-              </div>
-              <input type="text" hidden="true" title="Eliminar producto" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
-
-              <button type="submit" class="btn btn-danger">Eliminar producto</button>
-              | <a href="listado-productos.php">Volver<a>
-            </form>
+                    ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="precio">Precio</label>
+                  <input type="text" title="Sólo números" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>" required pattern="[0-9]+(.|,)[0-9]+">
+                </div>
+                <input type="text" hidden="true" title="Elija un tipo de bebidas" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
+                <div class="form-group">
+                  <label for="descripcion">Descripcion</label>
+                  <input type="text" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+">
+                </div>
+                <div class="form-group">
+                  <label for="marca">Marca</label>
+                  <input type="text" name="marca" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| ]+">
+                </div>
+                <div class="form-group">
+                  <label for="detalle">Detalle</label>
+                  <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Modificar producto</button>
+                | <a href="listado-productos.php">Volver<a>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+        <?php }
+        else{ ?>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <form class="" action="eliminar-producto.php" method="post">
+                  <div class="form-group">
+                    <label for="nombre">Nombre bebida</label>
+                    <input type="text" title="Sólo letras y/o números" name="nombre" class="form-control" disabled="true" value="<?php echo $Producto['nombre']; ?>" required pattern="[(A-Za-z0-9)| ]+">
+                  </div>
+                  <div class="form-group">
+                    <label for="tipo_bebida">Tipo de bebida</label>
+                    <select class="form-control" title="Elija un tipo de bebida" disabled="true" name="tipo_bebida">
+                      <?php
+                      while($row = mysqli_fetch_assoc($sql_tipos_bebida)){
+                        if($Producto['id_tipo_bebida'] == $row['id_tipo_bebida'])
+                        {
+                          echo $row['nombre'];
+                          echo"<option value=\"".$row['id_tipo_bebida']."\" selected>".$row['nombre']."</option>";
+                        }
+                        else{
+                          echo $row['nombre'];
+                          echo"<option value=\"".$row['id_tipo_bebida']."\">".$row['nombre']."</option>";
+                        }
+                      }
+                      ?>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="text" title="Sólo números" disabled="true" name="precio" class="form-control" value="<?php echo $Producto['precio']; ?>" required pattern="[0-9]+(.|,)[0-9]+">
+                  </div>
+                  <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" disabled="true" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+">
+                  </div>
+                  <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <input type="text" disabled="true" title="Sólo letras y/o números" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| ]+">
+                  </div>
+                  <div class="form-group">
+                    <label for="detalle">Detalle</label>
+                    <textarea type="text" name="detalle" disabled="true" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
+                  </div>
+                  <input type="text" hidden="true" title="Eliminar producto" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
+
+                  <button type="submit" class="btn btn-danger">Eliminar producto</button>
+                  | <a href="listado-productos.php">Volver<a>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+
 
     <?php
       }
     ?>
+    /* cierre del if que valida el id y muestra de error por id incorrecto */
+  <?php }
+  else{ ?>
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="color: red;"><span class="glyphicon glyphicon-remove"></span>  Error</h1>
+        <h2 style="color: red">El id ingresado no es correcto.</h2>
+        <a href="listado-productos.php">Volver al listado</a>
+      </div>
+    </div>
+    </div>
+
+
+<?php  } ?>
     <?php
       }
     } else {
