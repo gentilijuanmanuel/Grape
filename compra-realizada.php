@@ -113,6 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col col-md-6 col-md-offset-3">
+                  <?php $_SESSION['carro'] = null; ?>
                 <h1>Su compra ha sido aceptada</h1>
                     <div class='alert alert-success' role='alert'>Muchas gracias, lo esperamos nuevamente en Grape!  </div>
                 <a href="index.php">Volver a la página principal</a>

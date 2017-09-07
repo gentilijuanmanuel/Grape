@@ -127,7 +127,8 @@
       <h1>Mi carrito</h1>
       <?php
 
-      $carro = $_SESSION['carro'];
+      if(isset($_SESSION['carro'])) $carro = $_SESSION['carro'];
+      if(isset($carro)){
       $subtotal = 0;
       $total = 0;
       $contador = 0;
@@ -184,6 +185,9 @@
       <div class="col-md-3  col-md-offset-5">
         <input class="btn btn-success" type="button" value="Checkout" onClick="window.location='compra-realizada.php'";> | <input class="btn btn-primary" type="button" value="Seguir comprando" onClick="window.location='categorias-whisky.php'";>
       </div>
+    <?php } else { ?>
+      <div class='alert alert-warning' role='alert'>Aún no hay nada en el carrito, seleccione un producto y agreguelo.</div>
+    <?php } ?>
     </div>
   </div>
 </div>
