@@ -54,6 +54,17 @@
               echo '<ul class="nav navbar-nav">';
               echo '<li class="active"><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$_SESSION['nombre_usuario'].'<span class="sr-only">(current)</span></a></li>';
               echo '</ul>';
+
+              include("conexion.inc");
+              $usuario = $_SESSION['nombre_usuario'];
+              $consultaTipoUsuario = "select tipo_usuario from usuarios where nombre_usuario = '$usuario'";
+              $resultado = mysqli_query($link, $consultaTipoUsuario) or die (mysqli_error($validar));
+              $resultado_array = mysqli_fetch_array($resultado);
+              if($resultado_array[0] == 0) {
+                  echo '<ul class="nav navbar-nav">';
+                  echo '<li class="active"><a href="carrito.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ir al carrito<span class="sr-only">(current)</span></a></li>';
+                  echo '</ul>';
+              }
           }
           else {
               echo '<ul class="nav navbar-nav">';
