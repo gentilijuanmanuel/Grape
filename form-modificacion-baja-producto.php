@@ -133,7 +133,7 @@
               <form class="" action="modificar-producto.php" method="post">
                 <div class="form-group">
                   <label for="nombre">Nombre bebida</label>
-                  <input type="text" title="Modificar producto" name="nombre" class="form-control" value="<?php echo $Producto['nombre']; ?>" required pattern="[A-Za-z0-9]+">
+                  <input type="text" title="Modificar producto" name="nombre" class="form-control" value="<?php echo $Producto['nombre']; ?>" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
                 </div>
                 <div class="form-group">
                   <label for="tipo_bebida">Tipo de bebida</label>
@@ -160,15 +160,15 @@
                 <input type="text" hidden="true" title="Elija un tipo de bebidas" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
                 <div class="form-group">
                   <label for="descripcion">Descripcion</label>
-                  <input type="text" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+">
+                  <input type="text" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;|ñáéíóú]+">
                 </div>
                 <div class="form-group">
                   <label for="marca">Marca</label>
-                  <input type="text" name="marca" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| ]+">
+                  <input type="text" name="marca" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
                 </div>
                 <div class="form-group">
                   <label for="detalle">Detalle</label>
-                  <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
+                  <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;|ñáéíóú]+"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Modificar producto</button>
                 | <a href="listado-productos.php">Volver<a>
@@ -184,7 +184,7 @@
                 <form class="" action="eliminar-producto.php" method="post">
                   <div class="form-group">
                     <label for="nombre">Nombre bebida</label>
-                    <input type="text" title="Sólo letras y/o números" name="nombre" class="form-control" disabled="true" value="<?php echo $Producto['nombre']; ?>" required pattern="[(A-Za-z0-9)| ]+">
+                    <input type="text" title="Sólo letras y/o números" name="nombre" class="form-control" disabled="true" value="<?php echo $Producto['nombre']; ?>" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
                   </div>
                   <div class="form-group">
                     <label for="tipo_bebida">Tipo de bebida</label>
@@ -210,15 +210,15 @@
                   </div>
                   <div class="form-group">
                     <label for="descripcion">Descripción</label>
-                    <input type="text" disabled="true" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+">
+                    <input type="text" disabled="true" name="descripcion" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['descripcion']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;|ñáéíóú]+">
                   </div>
                   <div class="form-group">
                     <label for="marca">Marca</label>
-                    <input type="text" disabled="true" title="Sólo letras y/o números" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| ]+">
+                    <input type="text" disabled="true" title="Sólo letras y/o números" name="marca" class="form-control" value="<?php echo $Producto['marca']; ?>" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
                   </div>
                   <div class="form-group">
                     <label for="detalle">Detalle</label>
-                    <textarea type="text" name="detalle" disabled="true" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
+                    <textarea type="text" name="detalle" disabled="true" title="Sólo letras y/o números" class="form-control" value="<?php echo $Producto['detalle']; ?>" required pattern="[(A-Za-z0-9)| |.|,|;|ñáéíóú]+"></textarea>
                   </div>
                   <input type="text" hidden="true" title="Eliminar producto" name="id_bebida" value="<?php echo $Producto['id_bebida']; ?>">
 

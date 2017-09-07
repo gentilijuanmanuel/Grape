@@ -126,7 +126,7 @@
           <form class="" action="alta-producto.php" method="post" name="submit" >
             <div class="form-group">
               <label for="nombre">Nombre bebida</label>
-              <input type="text" name="nombre" title="Sólo letras y/o números" class="form-control" required pattern="[(A-Za-z0-9)| ]+">
+              <input type="text" name="nombre" title="Sólo letras y/o números" class="form-control" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
             </div>
             <div class="form-group">
               <label for="tipo_bebida">Tipo de bebida</label>
@@ -146,16 +146,16 @@
 
             <div class="form-group">
               <label for="descripcion">Descripción</label>
-              <input type="text" title="Sólo letras y/o números" name="descripcion" class="form-control" minlength="5" maxlength="40" required pattern="[(A-Za-z0-9)| |.|,|;]+">
+              <input type="text" title="Sólo letras y/o números" name="descripcion" class="form-control" minlength="5" maxlength="40" required pattern="[(A-Za-z0-9)| |.|,|;|ñáéíóú]+">
             </div>
 
             <div class="form-group">
               <label for="marca">Marca</label>
-              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[(A-Za-z0-9)| ]+">
+              <input type="text" title="Sólo letras y/o números" name="marca" class="form-control" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
             </div>
             <div class="form-group">
               <label for="detalle">Detalle</label>
-              <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="" required pattern="[(A-Za-z0-9)| |.|,|;]+"></textarea>
+              <textarea type="text" name="detalle" title="Sólo letras y/o números" class="form-control" value="" required pattern="[(A-Za-z0-9)| |.|,|;|ñáéíóú]+"></textarea>
             </div>
             <a href="#" onClick="window.open('Cargar-imagen.html', 'ImaGen', 'resizable, height=300, width=500'); return false;">Cargar Imagen</a>
             <br><br>

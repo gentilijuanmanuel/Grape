@@ -130,19 +130,19 @@
           <form class="" action="modificar-usuario.php" method="post">
             <div class="form-group">
               <label for="nombre_usuario">Nombre usuario</label>
-              <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" value="<?php echo $Usuario['nombre_usuario']; ?>" required pattern="[A-Za-z0-9]+">
+              <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" value="<?php echo $Usuario['nombre_usuario']; ?>" required pattern="[A-Za-z0-9|ñ]+">
             </div>
             <div class="form-group">
               <label for="contrasenia">Contraseña</label>
-              <input type="text" title="Sólo letras y/o números" name="contrasenia" class="form-control" value="<?php echo $Usuario['contrasenia']; ?>" required pattern="[A-Za-z0-9]+">
+              <input type="text" title="Sólo letras y/o números" name="contrasenia" class="form-control" value="<?php echo $Usuario['contrasenia']; ?>" required pattern="[A-Za-z0-9|ñ]+">
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[(A-Za-z)| ]+">
+              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[(A-Za-z)| |ñáéíóú]+">
             </div>
             <div class="form-group">
               <label for="apellido">Apellido</label>
-              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| ]+">
+              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| |ñáéíóú]+">
             </div>
             <div class="form-group">
                 <label for="mail">E-mail</label>
@@ -181,20 +181,20 @@
             <form class="" action="eliminar-usuario.php" method="post">
               <div class="form-group">
                 <label for="nombre_usuario">Nombre usuario</label>
-                <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" disabled="true" value="<?php echo $Usuario['nombre_usuario']; ?>" required pattern="[A-Za-z0-9]+">
+                <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" disabled="true" value="<?php echo $Usuario['nombre_usuario']; ?>" required pattern="[A-Za-z0-9|ñ]+">
               </div>
               <div class="form-group">
                 <label for="contrasenia">Contraseña</label>
-                <input type="text" disabled="true" title="Sólo letras y/o números" class="form-control" name="contrasenia" value="<?php echo $Usuario['contrasenia']; ?>" required pattern="[A-Za-z0-9]+">
+                <input type="text" disabled="true" title="Sólo letras y/o números" class="form-control" name="contrasenia" value="<?php echo $Usuario['contrasenia']; ?>" required pattern="[A-Za-z0-9|ñ]+">
               </div>
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" title="Sólo letras" disabled="true" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[(A-Za-z)| ]+">
+                <input type="text" title="Sólo letras" disabled="true" name="nombre" class="form-control" value="<?php echo $Usuario['nombre']; ?>" required pattern="[(A-Za-z)| |ñáéíóú]+">
               </div>
 
               <div class="form-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" disabled="true" name="apellido" title="Sólo letras" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| ]+">
+                <input type="text" disabled="true" name="apellido" title="Sólo letras" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| |ñáéíóú]+">
               </div>
               <div class="form-group">
                   <label for="mail">E-mail</label>

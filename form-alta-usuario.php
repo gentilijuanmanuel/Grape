@@ -126,19 +126,19 @@
             <h1>Alta de usuario</h1>
             <div class="form-group">
               <label for="nombre_usuario">Nombre usuario</label>
-              <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" value="" required pattern="[A-Za-z0-9]+">
+              <input type="text" title="Sólo letras y/o números" name="nombre_usuario" class="form-control" value="" required pattern="[A-Za-z0-9|ñ]+">
             </div>
             <div class="form-group">
               <label for="contrasenia">Contraseña</label>
-              <input type="password" title="Sólo letras y/o números" name="contrasenia" class="form-control" value="" required pattern="[A-Za-z0-9]+">
+              <input type="password" title="Sólo letras y/o números" name="contrasenia" class="form-control" value="" required pattern="[A-Za-z0-9|ñ]+">
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="" required pattern="[(A-Za-z0-9)| ]+">
+              <input type="text" title="Sólo letras" name="nombre" class="form-control" value="" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
             </div>
             <div class="form-group">
               <label for="apellido">Apellido</label>
-              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="" required pattern="[(A-Za-z0-9)| ]+">
+              <input type="text" title="Sólo letras" name="apellido" class="form-control" value="" required pattern="[(A-Za-z0-9)| |ñáéíóú]+">
             </div>
             <div class="form-group">
                 <label for="mail">E-mail</label>
