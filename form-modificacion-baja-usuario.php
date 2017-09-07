@@ -133,6 +133,10 @@
               <label for="apellido">Apellido</label>
               <input type="text" title="Sólo letras" name="apellido" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| ]+">
             </div>
+            <div class="form-group">
+                <label for="mail">E-mail</label>
+                <input type="email" class="form-control" title="Formato de e-mail" name="mail" value="<?php echo $Usuario['email']; ?>" required>
+            </div>
             <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="<?php echo $Usuario['id_usuario']; ?>">
             <div class="form-group">
               <label for="fecha_nac">Fecha de nacimiento</label>
@@ -180,6 +184,10 @@
               <div class="form-group">
                 <label for="apellido">Apellido</label>
                 <input type="text" disabled="true" name="apellido" title="Sólo letras" class="form-control" value="<?php echo $Usuario['apellido']; ?>" required pattern="[(A-Za-z)| ]+">
+              </div>
+              <div class="form-group">
+                  <label for="mail">E-mail</label>
+                  <input type="email" class="form-control" title="Formato de e-mail" disabled="true" name="mail" value="<?php echo $Usuario['email']; ?>" required>
               </div>
               <input type="text" hidden="true" title="Eliminar usuario" name="id_usuario" value="<?php echo $Usuario['id_usuario']; ?>">
               <div class="form-group">

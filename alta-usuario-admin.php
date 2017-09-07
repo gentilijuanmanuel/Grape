@@ -106,9 +106,10 @@
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $tipo_usuario = $_POST['tipo_usuario'];
+            $email = $_POST['mail'];
             $fecha_nac = $_POST['fecha_nac'];
 
-            $vAlta = "insert into usuarios(nombre_usuario, contrasenia, nombre, apellido, tipo_usuario, fecha_nac) values ('$nombre_usuario', '$contrasenia','$nombre','$apellido','$tipo_usuario', '$fecha_nac')";
+            $vAlta = "insert into usuarios(nombre_usuario, contrasenia, nombre, apellido, email ,tipo_usuario, fecha_nac) values ('$nombre_usuario', '$contrasenia','$nombre','$apellido','$email','$tipo_usuario', '$fecha_nac')";
             $resultado = mysqli_query($link, $vAlta) or die (mysqli_error($link));
             if($resultado) {
               echo "<div class='alert alert-success' role='alert'>El usuario ha sido agregado correctamente.</div>";

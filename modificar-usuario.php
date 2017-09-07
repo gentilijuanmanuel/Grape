@@ -108,11 +108,13 @@
           $tipo_usuario = $_POST['tipo_usuario'];
           $ID_Usuario = $_POST['id_usuario'];
           $fecha_nac = $_POST['fecha_nac'];
-          $vModificacion = "update usuarios set nombre_usuario = '$nombre_usuario', contrasenia='$contrasenia',nombre ='$nombre' ,apellido='$apellido', tipo_usuario='$tipo_usuario', fecha_nac ='$fecha_nac' where id_usuario = '$ID_Usuario' ";
+          $email = $_POST['mail'];
+
+          $vModificacion = "update usuarios set nombre_usuario = '$nombre_usuario', contrasenia='$contrasenia',nombre ='$nombre' ,apellido='$apellido', email = '$email' ,tipo_usuario='$tipo_usuario', fecha_nac ='$fecha_nac' where id_usuario = '$ID_Usuario' ";
 
           $resultado = mysqli_query($link, $vModificacion) or die(mysqli_error($link));
           if($resultado) {
-            echo "<div class='alert alert-success' role='alert'>El usuario ha sido eliminado correctamente.</div>";
+            echo "<div class='alert alert-success' role='alert'>El usuario ha sido modificado correctamente.</div>";
           }
 
           mysqli_close($link);

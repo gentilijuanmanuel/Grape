@@ -129,6 +129,10 @@
               <label for="apellido">Apellido</label>
               <input type="text" title="Sólo letras" name="apellido" class="form-control" value="" required pattern="[(A-Za-z0-9)| ]+">
             </div>
+            <div class="form-group">
+                <label for="mail">E-mail</label>
+                <input type="email" class="form-control" title="Formato de e-mail" name="mail" placeholder="ejemplo@ejemplo.com" required>
+            </div>
             <input type="text" hidden="true" title="Modificar usuario" name="id_usuario" value="">
             <div class="form-group">
               <label for="fecha_nac">Fecha de nacimiento</label>

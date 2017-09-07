@@ -118,6 +118,7 @@
               <th>Contraseña</th>
               <th>Nombre</th>
               <th>Apellido</th>
+              <th>Email</th>
               <th>Fecha de Nacimiento</th>
               <th>Tipo de usuario</th>
             </tr>
@@ -130,6 +131,7 @@
                 echo "<td>".$fila['contrasenia']."</td>";
                 echo "<td>".$fila['nombre']."</td>";
                 echo "<td>".$fila['apellido']."</td>";
+                echo "<td>".$fila['email']."</td>";
                 echo "<td>".$fila['fecha_nac']."</td>";
                 if($fila['tipo_usuario'] == '1'){
                   echo "<td>Administrador</td>";
