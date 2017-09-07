@@ -132,6 +132,7 @@
                         $_SESSION['ultimoAcceso'] = $fecha;
                         $_SESSION['nombre_usuario'] = $nombreUsuario;
                         $_SESSION['tipo_usuario'] = $resultadoConsultaTipoUsuario_array[0];
+
                     }
                     else {
                         echo "<div class='alert alert-danger' role='alert'>El usuario y/o la contraseña no es correcto.</div>";

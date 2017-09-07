@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,6 +141,17 @@
           <div class="col-md-5">
             <h2><?php echo $vProducto['nombre']; ?></h2>
             <p><?php echo $vProducto['detalle']; ?> </p>
+          </div>
+          <div class="col-md-5">
+            <form class="form" action="agregar-al-carrito.php" method="post">
+              <label for="cantidad">Cantidad:</label>
+              <input type="number" name="cantidad">
+
+              <input type="text" hidden="true" name="id" value="<?php echo $vProducto['id_bebida']; ?>">
+
+              <button type="submit" class="btn btn-default">Agregar al carrito</button>
+
+            </form>
           </div>
         </div>
       </div>
