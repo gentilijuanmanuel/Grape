@@ -30,6 +30,7 @@
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -120,18 +121,54 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
-    <div class="container">
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <h1>Mi carrito</h1>
       <?php
 
       $carro = $_SESSION['carro'];
-
-      foreach($carro as $k => $v){
-        echo $v['cantidad'];
-      }
+      $subtotal = 0;
+      $total = 0;
+      $contador = 0;
 
       ?>
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nombre del producto</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Subtotal</th>
+        </tr>
+        <?php
+        foreach($carro as $k => $v){ ?>
+        <tr>
+          <?php
+            echo "<td>".$v['id']."</td>";
+            echo "<td>".$v['producto']."</td>";
+            echo "<td>".$v['cantidad']."</td>";
+            echo "<td>$".$v['precio']."</td>";
+            echo "<td>$".$v['precio']*$v['cantidad']."</td>";
+          ?>
+        </tr>
+      <?php } ?>
+      </table>
+      <br>
+      <hr>
+      <div class="form-inline">
+        <form class="form-group" action="borrar-del-carrito.php" method="post">
+          <div class="form-group">
+            <label for="id">ID: </label>
+            <input class="form-control id-eliminar-carro" title="ID" type="number" name="id">
+          </div>
+          <button type="submit" title="Eliminar del carrito" name="Elimminar" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+
     </div>
+  </div>
+</div>
 
 
     <!-- Footer -->
