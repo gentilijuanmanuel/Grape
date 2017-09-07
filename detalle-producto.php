@@ -1,5 +1,6 @@
-<?php session_start(); ?>
-
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,27 +133,68 @@
             </div>
             <div class="col-md-9">
               <div class="row">
-                <h1>Detalle del producto</h1>
+                  <div class="col-md-12">
+                    <h1><?php echo $vProducto['nombre']; ?></h1>
+                    <hr>
+                  </div>
               </div>
-            </div>
-          <div class="col-md-offset-1 col-md-3 thumbnail">
-            <img src="<?php echo $vProducto['url_imagen']; ?>" alt="">
-          </div>
-          <div class="col-md-5">
-            <h2><?php echo $vProducto['nombre']; ?></h2>
-            <p><?php echo $vProducto['detalle']; ?> </p>
-          </div>
-          <div class="col-md-5">
-            <form class="form" action="agregar-al-carrito.php" method="post">
-              <label for="cantidad">Cantidad:</label>
-              <input type="number" name="cantidad">
-
-              <input type="text" hidden="true" name="id" value="<?php echo $vProducto['id_bebida']; ?>">
-
-              <button type="submit" class="btn btn-default">Agregar al carrito</button>
-
-            </form>
-          </div>
+              <div class="row">
+                <div class="col-md-6 thumbnail">
+                  <img src="<?php echo $vProducto['url_imagen']; ?>" alt="Imagen del producto">
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-8 col-md-offset-4">
+                      <h4>Datos principales</h4>
+                    </div>
+                  </div>
+                  <br>
+                  <dl class="dl-horizontal">
+                    <dt>Nombre</dt>
+                    <dd><?php echo $vProducto['nombre']; ?></dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Precio</dt>
+                    <dd><?php echo "$".$vProducto['precio']; ?></dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Marca</dt>
+                    <dd><?php echo $vProducto['marca']; ?></dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Descripción</dt>
+                    <dd><?php echo $vProducto['detalle']; ?></dd>
+                  </dl>
+                </div>
+                <br>
+                <br>
+                <?php
+                  if(isset($_SESSION['nombre_usuario'])) {
+                ?>
+                  <div class="col-md-6">
+                      <div class="panel panel-primary">
+                      <div class="panel-heading">Agregar al carrito</div>
+                      <div class="panel-body">
+                          <form class="form" action="agregar-al-carrito.php" method="post">
+                            <div class="form-group">
+                              <label for="cantidad">Cantidad</label>
+                              <input type="number" title="Sólo números" name="cantidad" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" hidden="true" name="id" value="<?php echo $vProducto['id_bebida']; ?>">
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">Agregar al carrito</button>
+                          </form>
+                      </div>
+                  </div>
+                <?php
+                  }
+                ?>
+                </div>
+              </div>
+              <div class="row">
+                </div>
+              </div>
         </div>
       </div>
       <div class="container">
