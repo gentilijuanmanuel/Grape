@@ -152,10 +152,21 @@
             echo "<td>$".$v['precio']*$v['cantidad']."</td>";
           ?>
         </tr>
-      <?php } ?>
+      <?php
+        $total = $total + $v['precio']*$v['cantidad'];
+        } ?>
       </table>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-7">
+          <dl class="dl-horizontal">
+            <dt>Total de la compra:</dt>
+            <dd><?php echo "$".$total; ?></dd>
+          </dl>
+        </div>
+
+      </div>
+
       <br>
-      <hr>
       <div class="form-inline">
         <form class="form-group" action="borrar-del-carrito.php" method="post">
           <div class="form-group">
@@ -164,8 +175,15 @@
           </div>
           <button type="submit" title="Eliminar del carrito" name="Elimminar" class="btn btn-danger">Eliminar</button>
         </form>
+              <hr>
+
       </div>
 
+    </div>
+    <div class="row">
+      <div class="col-md-3  col-md-offset-5">
+        <input class="btn btn-success" type="button" value="Checkout" onClick="window.location='compra-realizada.php'";> | <input class="btn btn-primary" type="button" value="Seguir comprando" onClick="window.location='categorias-whisky.php'";>
+      </div>
     </div>
   </div>
 </div>
